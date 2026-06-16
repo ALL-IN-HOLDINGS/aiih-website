@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="description" content="経営者候補を募集。実際の経営現場で意思決定や事業運営を経験し、プロ経営者を目指せるCAREERS情報を掲載しています。" />
+  <title>CAREERS | ALL IN HOLDINGS株式会社</title>
+  <link rel="icon" href="logo-transparent-sm.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo-transparent-sm.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css?v=20260309e" />
+  <link rel="stylesheet" href="recruit.css?v=20260308a" />
+  <link rel="stylesheet" href="value.css?v=20260308a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="logo-hero" id="logoHero">
+    <a href="index.html">
+      <img src="logo-transparent-sm.png" alt="ALL IN HOLDINGS" class="logo-hero__img" />
+    </a>
+    <button class="header__hamburger logo-hero__hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="header__nav" id="nav">
+    <div class="header__nav-top">
+      <div class="header__nav-logo">
+        <img src="logo-transparent-sm.png" alt="ALL IN HOLDINGS" class="header__nav-logo-img" />
+      </div>
+      <button class="header__nav-close" id="navClose" aria-label="閉じる">
+        <span></span><span></span>
+        <small class="header__nav-close-label">CLOSE</small>
+      </button>
+    </div>
+    <ul class="header__nav-list">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#service">SERVICE</a></li>
+      <li><a href="value.html">VALUES</a></li>
+      <li><a href="recruit.html">CAREERS</a></li>
+      <li><a href="company.html">COMPANY</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn btn--metallic header__nav-btn">CONTACT</a>
+  </nav>
+
+  <!-- ===== RECRUIT HERO ===== -->
+  <section class="r-hero">
+    <div class="r-hero__bg">
+      <div class="r-hero__bg-grid"></div>
+    </div>
+    <div class="r-hero__inner">
+      <div class="r-hero__accent js-fadein"></div>
+      <p class="r-hero__label js-fadein">CAREERS</p>
+      <h1 class="r-hero__title js-fadein">
+        過去はもう見ない。<br />
+        掴むのは未来、<br />
+        誰も見てない夢を見ろ。
+      </h1>
+      <p class="r-hero__desc js-fadein">
+        学ぶだけの場所ではない。実際に経営する環境がここにある。<br class="pc-only" />
+        覚悟を持って飛び込む者だけを、ALL IN HOLDINGSは待っている。
+      </p>
+      <a href="#entry" class="btn btn--metallic btn--large js-fadein">エントリーする</a>
+    </div>
+  </section>
+
+  <!-- ===== 問いかけ ===== -->
+  <section class="v-question section">
+    <div class="container">
+      <div class="v-question__inner js-fadein">
+        <p class="v-question__text">
+          <span class="v-question__text-pc">「本気を出せば自分は変われる」<br />そう思いながら、今の環境で何年が過ぎた？<span class="v-question__text-add">今そう思っている間にも時間は過ぎている。</span></span>
+          <span class="v-question__text-sp">「本気を出せば自分は変われる」<br />そう思いながら、<br />今の環境で何年が過ぎた？<span class="v-question__text-add">今そう思っている間にも<br />時間は過ぎている。</span></span>
+        </p>
+        <div class="v-question__clock" id="questionClock">
+          <span class="v-question__clock-num" id="clockYear">2026</span>
+          <span class="v-question__clock-sep">.</span>
+          <span class="v-question__clock-num" id="clockMonth">02</span>
+          <span class="v-question__clock-sep">.</span>
+          <span class="v-question__clock-num" id="clockDay">26</span>
+          <span class="v-question__clock-space"></span>
+          <span class="v-question__clock-num" id="clockHour">00</span>
+          <span class="v-question__clock-sep v-question__clock-colon">:</span>
+          <span class="v-question__clock-num" id="clockMin">00</span>
+          <span class="v-question__clock-sep v-question__clock-colon">:</span>
+          <span class="v-question__clock-num" id="clockSec">00</span>
+        </div>
+        <p class="v-question__sub">
+          「準備ができたら」「環境が整ったら」「もう少し経験を積んだら」<br />
+          その言い訳の数だけ、人生は消費されていく。<br />
+          本気で変わりたいなら、今この瞬間に決めるしかない。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TO THE TOP, TOGETHER. ===== -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section__head js-fadein">
+        <h2 class="section__title r-why__title">TO THE TOP, TOGETHER.</h2>
+      </div>
+      <div class="r-why__grid">
+        <div class="r-why__card js-fadein">
+          <p class="r-why__card-index">01</p>
+          <h3 class="r-why__card-title">圧倒的な成長スピード</h3>
+          <p class="r-why__card-body">
+            通常10年かかる経験を1〜2年で積める環境。経営者直下で実際のビジネスの意思決定に携わり、プロ経営者として必要なスキルを最短で習得できます。
+          </p>
+        </div>
+        <div class="r-why__card js-fadein">
+          <p class="r-why__card-index">02</p>
+          <h3 class="r-why__card-title">実力主義・成果報酬</h3>
+          <p class="r-why__card-body">
+            年齢・経歴に関わらず、実績と貢献度で評価。成果に見合った報酬と責任ある役割を早期から担えます。挑戦を全力でサポートする制度が整っています。
+          </p>
+        </div>
+        <div class="r-why__card js-fadein">
+          <p class="r-why__card-index">03</p>
+          <h3 class="r-why__card-title">グローバルなネットワーク</h3>
+          <p class="r-why__card-body">
+            国内外の経営者・起業家・投資家との強固なネットワークにアクセス可能。世界を舞台に活躍するための人脈と機会を提供します。
+          </p>
+        </div>
+        <div class="r-why__card js-fadein">
+          <p class="r-why__card-index">04</p>
+          <h3 class="r-why__card-title">志の高い仲間</h3>
+          <p class="r-why__card-body">
+            「世界を変える」という共通の志を持つメンバーと切磋琢磨できる環境。互いに高め合い、刺激し合える最高のチームが待っています。
+          </p>
+        </div>
+        <div class="r-why__card js-fadein">
+          <p class="r-why__card-index">05</p>
+          <h3 class="r-why__card-title">経営の最前線</h3>
+          <p class="r-why__card-body">
+            「支援」ではなく「実践」。実際の経営現場で意思決定を重ね、PL責任を持ち、事業を動かす。机上の空論は一切ない。
+          </p>
+        </div>
+        <div class="r-why__card js-fadein">
+          <p class="r-why__card-index">06</p>
+          <h3 class="r-why__card-title">挑戦できる文化</h3>
+          <p class="r-why__card-body">
+            「壁は超えるためにある」という文化が根付いています。失敗を恐れず挑戦し続けることができる、心理的安全性の高い職場環境です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== POSITIONS ===== -->
+  <section class="section" id="positions">
+    <div class="container">
+      <div class="section__head js-fadein">
+        <p class="r-pos__label">POSITIONS</p>
+        <h2 class="r-pos__heading">経営者 / 経営者候補</h2>
+      </div>
+
+      <div class="r-pos js-fadein">
+        <p class="r-pos__desc">経営コンサルティング、M&A、事業再生、新規事業立ち上げ — あらゆる経営実務を現場で経験し、プロ経営者へと成長するポジション。<br />複数社の経営に携わりながら、自らも経営者としての意思決定力・実行力を鍛え上げる。</p>
+
+        <div class="r-pos__details">
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">給与</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">年収1,000万〜3,000万円（経験・実績による）+ インセンティブ</span>
+          </div>
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">勤務地</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">東京都</span>
+          </div>
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">必須</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">経営者になる覚悟、ビジネス経験3年以上、論理的思考力</span>
+          </div>
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">歓迎</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">経営経験、コンサルティング経験、起業経験、MBA</span>
+          </div>
+        </div>
+
+        <div class="r-pos__cta">
+          <a href="#entry" class="btn btn--metallic btn--large">エントリーする</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== JOURNEY ===== -->
+  <section class="v-journey section">
+    <div class="container">
+      <div class="v-sec-head js-fadein">
+        <h2 class="v-sec-head__en">Journey</h2>
+        <p class="v-sec-head__ja">ALL INでの経営者への道</p>
+      </div>
+
+      <div class="v-journey__timeline">
+        <div class="v-journey__step js-fadein">
+          <div class="v-journey__step-marker">
+            <span class="v-journey__step-dot"></span>
+            <span class="v-journey__step-line"></span>
+          </div>
+          <div class="v-journey__step-content">
+            <p class="v-journey__step-phase">PHASE 01</p>
+            <h3 class="v-journey__step-title">HD役員として着任</h3>
+            <p class="v-journey__step-body">
+              ALL IN HOLDINGS役員として契約。<br />
+              HD直下の子会社に社長として着任し、<br />
+              初日から「経営者」としての日々が始まる。
+            </p>
+          </div>
+        </div>
+
+        <div class="v-journey__step js-fadein">
+          <div class="v-journey__step-marker">
+            <span class="v-journey__step-dot"></span>
+            <span class="v-journey__step-line"></span>
+          </div>
+          <div class="v-journey__step-content">
+            <p class="v-journey__step-phase">PHASE 02</p>
+            <h3 class="v-journey__step-title">事業を回す</h3>
+            <p class="v-journey__step-body">
+              事業戦略の策定、営業、採用、組織づくり、資金管理、法務対応。<br />
+              経営に必要な全領域を、自分の責任で回す。<br />
+              HDが意思決定と資金面をバックアップするから、<br />
+              致命傷を負わずに本気で攻められる。
+            </p>
+          </div>
+        </div>
+
+        <div class="v-journey__step js-fadein">
+          <div class="v-journey__step-marker">
+            <span class="v-journey__step-dot"></span>
+            <span class="v-journey__step-line"></span>
+          </div>
+          <div class="v-journey__step-content">
+            <p class="v-journey__step-phase">PHASE 03</p>
+            <h3 class="v-journey__step-title">後任を育てる</h3>
+            <p class="v-journey__step-body">
+              自分が抜けても事業が回る状態をつくる。<br />
+              これは「引き継ぎ」ではなく「経営者を育てる経験」。<br />
+              ここで初めて、本物のプロ経営者になる。
+            </p>
+          </div>
+        </div>
+
+        <div class="v-journey__step v-journey__step--last js-fadein">
+          <div class="v-journey__step-marker">
+            <span class="v-journey__step-dot v-journey__step-dot--gold"></span>
+          </div>
+          <div class="v-journey__step-content">
+            <p class="v-journey__step-phase">GRADUATION</p>
+            <h3 class="v-journey__step-title">卒業 ― あなたの道を選ぶ</h3>
+            <p class="v-journey__step-body">
+              後任育成が完了した時、3つの未来が開かれる。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== YOUR FUTURE ===== -->
+  <section class="v-future section section--gray">
+    <div class="container">
+      <div class="v-sec-head js-fadein">
+        <h2 class="v-sec-head__en">Your Future</h2>
+        <p class="v-sec-head__ja">卒業後、あなたの人生はこう変わる</p>
+      </div>
+
+      <div class="v-future__grid">
+        <div class="v-future__card js-fadein">
+          <div class="v-future__card-top">
+            <span class="v-future__card-num">ROUTE 01</span>
+            <h3 class="v-future__card-title">子会社拡大型</h3>
+            <p class="v-future__card-catch">HDと共に、事業を大きくし続ける</p>
+          </div>
+          <div class="v-future__card-bottom">
+            <p class="v-future__card-body">
+              そのまま社長として事業拡大を続ける道。<br />
+              HDの資本・ネットワーク・経営ノウハウを生涯にわたって活用できる。<br />
+              一人では到達できない規模の事業を、仲間と共に創る。
+            </p>
+            <p class="v-future__card-life">生涯にわたるHDのサポートを受けながら、<br />経営者としてのキャリアを積み重ねていく人生。</p>
+          </div>
+        </div>
+
+        <div class="v-future__card js-fadein">
+          <div class="v-future__card-top">
+            <span class="v-future__card-num">ROUTE 02</span>
+            <h3 class="v-future__card-title">株式買取・独立</h3>
+            <p class="v-future__card-catch">自分の会社を、自分のものにする</p>
+          </div>
+          <div class="v-future__card-bottom">
+            <p class="v-future__card-body">
+              育てた会社の株式をHDから買い取り、完全独立。<br />
+              ゼロから起業するリスクなく、<br />
+              すでに回っている事業のオーナーになれる。
+            </p>
+            <p class="v-future__card-life">自分が育てた会社の全権を握り、<br />自分の判断と責任だけで生きていく人生。</p>
+          </div>
+        </div>
+
+        <div class="v-future__card js-fadein">
+          <div class="v-future__card-top">
+            <span class="v-future__card-num">ROUTE 03</span>
+            <h3 class="v-future__card-title">グループ社長</h3>
+            <p class="v-future__card-catch">プロ経営者として、次のステージへ</p>
+          </div>
+          <div class="v-future__card-bottom">
+            <p class="v-future__card-body">
+              グループ内の別会社の社長として着任。<br />
+              業界も規模も異なるフィールドで、<br />
+              培った経営力をさらに進化させる。
+            </p>
+            <p class="v-future__card-life">どんな事業でも結果を出せるプロ経営者として、<br />複数の会社を率いていく人生。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOW ===== -->
+  <section class="section section--gray" id="flow">
+    <div class="container">
+      <div class="section__head js-fadein">
+        <h2 class="section__title">RECRUITMENT FLOW</h2>
+      </div>
+      <div class="r-flow">
+        <div class="r-flow__item js-fadein">
+          <div class="r-flow__step">
+            <span class="r-flow__step-num">01</span>
+          </div>
+          <div class="r-flow__content">
+            <h3 class="r-flow__title">エントリー</h3>
+            <p class="r-flow__body">下記フォームまたはエントリーボタンからご応募ください。職務経歴書・履歴書をご用意ください。</p>
+          </div>
+        </div>
+        <div class="r-flow__connector js-fadein"></div>
+        <div class="r-flow__item js-fadein">
+          <div class="r-flow__step">
+            <span class="r-flow__step-num">02</span>
+          </div>
+          <div class="r-flow__content">
+            <h3 class="r-flow__title">書類選考</h3>
+            <p class="r-flow__body">ご応募から5営業日以内に選考結果をメールにてご連絡します。</p>
+          </div>
+        </div>
+        <div class="r-flow__connector js-fadein"></div>
+        <div class="r-flow__item js-fadein">
+          <div class="r-flow__step">
+            <span class="r-flow__step-num">03</span>
+          </div>
+          <div class="r-flow__content">
+            <h3 class="r-flow__title">一次面接</h3>
+            <p class="r-flow__body">人事担当者との面接（オンライン可）。あなたの経験・想いをお聞かせください。</p>
+          </div>
+        </div>
+        <div class="r-flow__connector js-fadein"></div>
+        <div class="r-flow__item js-fadein">
+          <div class="r-flow__step">
+            <span class="r-flow__step-num">04</span>
+          </div>
+          <div class="r-flow__content">
+            <h3 class="r-flow__title">最終面接</h3>
+            <p class="r-flow__body">代表・役員との面接。ALL IN HOLDINGSのビジョンへの共感度と相互理解を深めます。</p>
+          </div>
+        </div>
+        <div class="r-flow__connector js-fadein"></div>
+        <div class="r-flow__item js-fadein">
+          <div class="r-flow__step r-flow__step--last">
+            <span class="r-flow__step-num">05</span>
+          </div>
+          <div class="r-flow__content">
+            <h3 class="r-flow__title">内定・オファー</h3>
+            <p class="r-flow__body">条件・入社日等を確認し、オファーレターをお渡しします。一緒に世界を変えましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL IN ===== -->
+  <section class="v-allin">
+    <div class="v-allin__bg"></div>
+    <div class="v-allin__inner">
+      <h2 class="v-allin__title js-fadein">ALL IN</h2>
+      <div class="v-allin__pillars">
+        <div class="v-allin__pillar js-fadein">
+          <span class="v-allin__pillar-num">I</span>
+          <p class="v-allin__pillar-text">すべてを賭ける</p>
+        </div>
+        <div class="v-allin__pillar js-fadein">
+          <span class="v-allin__pillar-num">II</span>
+          <p class="v-allin__pillar-text">全力を出す</p>
+        </div>
+        <div class="v-allin__pillar js-fadein">
+          <span class="v-allin__pillar-num">III</span>
+          <p class="v-allin__pillar-text">本気でやり切る</p>
+        </div>
+      </div>
+
+      <div class="v-allin__message js-fadein">
+        <p class="v-allin__message-text">
+          「いつかやる」は、一生やらない。<br />
+          人生を変えるのは、<span class="pc-only">今この瞬間の決断だけだ。</span><br class="sp-only" />
+          <span class="sp-only">今この瞬間の決断だけだ。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCROLL INDICATOR ===== -->
+  <div class="hero__scroll hero__scroll--section">
+    <span>SCROLL</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+
+  <!-- ===== ENTRY FORM ===== -->
+  <section class="section r-entry" id="entry">
+    <div class="r-entry__bg"></div>
+    <div class="container">
+      <div class="section__head js-fadein">
+        <h2 class="section__title">ENTRY</h2>
+      </div>
+      <form class="contact__form js-fadein" id="entryForm">
+        <div class="form__row">
+          <div class="form__group">
+            <label class="form__label" for="e-name">お名前 <span class="form__required">必須</span></label>
+            <input class="form__input" type="text" id="e-name" name="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="e-name-kana">フリガナ <span class="form__required">必須</span></label>
+            <input class="form__input" type="text" id="e-name-kana" name="name_kana" placeholder="ヤマダ タロウ" required />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__group">
+            <label class="form__label" for="e-email">メールアドレス <span class="form__required">必須</span></label>
+            <input class="form__input" type="email" id="e-email" name="email" placeholder="example@mail.com" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="e-tel">電話番号 <span class="form__required">必須</span></label>
+            <input class="form__input" type="tel" id="e-tel" name="tel" placeholder="090-0000-0000" required />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__group">
+            <label class="form__label" for="e-age">年齢 <span class="form__required">必須</span></label>
+            <input class="form__input" type="number" id="e-age" name="age" placeholder="28" min="18" max="60" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="e-career">現在の職業・経歴 <span class="form__required">必須</span></label>
+            <input class="form__input" type="text" id="e-career" name="career" placeholder="例：コンサル会社 / 5年 / 戦略コンサルタント" required />
+          </div>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="e-motivation">志望動機・自己PR <span class="form__required">必須</span></label>
+          <textarea class="form__textarea" id="e-motivation" name="motivation" rows="6" placeholder="ALL IN HOLDINGSへの志望動機や自己PRをご記入ください" required></textarea>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="e-file">履歴書・職務経歴書（任意）</label>
+          <div class="form__file-wrap">
+            <input class="form__file" type="file" id="e-file" name="file" accept=".pdf,.doc,.docx" />
+            <label class="form__file-label" for="e-file">
+              <span>ファイルを選択（PDF / Word）</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__agree">
+          <label class="form__agree-label">
+            <input type="checkbox" class="form__agree-check" required />
+            <span class="form__agree-text"><a href="privacy.html" class="form__agree-link">プライバシーポリシー</a>に同意する</span>
+          </label>
+        </div>
+        <div class="form__submit">
+          <button type="submit" class="btn btn--metallic btn--large">エントリーする</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__accent-line"></div>
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo"><span class="footer__logo-allin">ALL IN</span> <span class="footer__logo-holdings">HOLDINGS</span></p>
+          <p class="footer__tagline">仕事・遊び全て本気で楽しみ<br />人生あっという間だったと<br />仲間と笑える未来に向かう</p>
+        </div>
+        <nav class="footer__nav">
+          <ul class="footer__nav-list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html#service">SERVICE</a></li>
+            <li><a href="value.html">VALUES</a></li>
+            <li><a href="recruit.html">CAREERS</a></li>
+            <li><a href="company.html">COMPANY</a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+          </ul>
+        </nav>
+        <p class="footer__info"><span class="footer__info-name">ALL IN HOLDINGS株式会社</span><br /><span class="footer__info-addr">東京都渋谷区渋谷3-25-7 Bre.S SHIBUYA 202</span></p>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 ALL IN HOLDINGS All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260308a"></script>
+  <script src="recruit.js?v=20260308a"></script>
+</body>
+</html>

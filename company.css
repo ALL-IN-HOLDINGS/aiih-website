@@ -1,0 +1,342 @@
+/* ===========================
+   ALL IN HOLDINGS — company.css
+   会社情報ページ専用スタイル
+   =========================== */
+
+/* ===== ヘッダー (会社ページは常に白) ===== */
+.header.is-scrolled {
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(59,77,98,0.08);
+}
+
+
+/* ===== COMPANY HERO ===== */
+.c-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+.c-hero__bg { position: absolute; inset: 0; }
+.c-hero__bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(59,77,98,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,77,98,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.c-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+.c-hero__accent {
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+.c-hero__label {
+  font-family: var(--font-en);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.65em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.c-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
+  background: linear-gradient(to bottom, #0D0D0D 0%, #6B4F1A 55%, #C9A235 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.c-hero__desc {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--text-sub);
+  line-height: 1.9;
+}
+
+
+/* ===== MESSAGE ===== */
+.c-msg {
+  background: var(--white);
+}
+.c-msg__grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  max-width: 1160px;
+  margin: 0 auto;
+  min-height: 520px;
+  border: none;
+  position: relative;
+  overflow: visible;
+}
+.c-msg__grid::after {
+  content: 'MESSAGE';
+  position: absolute;
+  top: 38%;
+  left: 56px;
+  transform: translateY(-50%);
+  font-family: var(--font-en);
+  font-size: clamp(7.5rem, 15vw, 12rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  background: linear-gradient(to right, rgba(59,77,98,0.055), rgba(59,77,98,0.13));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- 左：クォート --- */
+.c-msg__label { display: none; }
+.c-msg__quote {
+  grid-column: 1;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 56px;
+  gap: 36px;
+}
+.c-msg__quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+/* --- 右：名前ブロック --- */
+.c-msg__name-block {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 44px;
+  position: relative;
+  z-index: 1;
+}
+.c-msg__name-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 1.14rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.c-msg__name-kanji {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: clamp(1.92rem, 3vw, 2.64rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+  color: var(--text);
+}
+.c-msg__name-unit {
+  display: inline-block;
+  letter-spacing: 0.1728em;
+}
+
+/* --- 本文 --- */
+.c-msg__body {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 80px 24px 80px 0;
+}
+.c-msg__body-text {
+  font-size: 1.05rem;
+  color: var(--text-sub);
+  line-height: 2.2;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.c-msg__body-text:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ===== セクション見出し ===== */
+.c-sec-head {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.c-sec-head__en {
+  font-family: var(--font-en);
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.c-sec-head__ja {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+
+/* ===== COMPANY INFO ===== */
+.c-info {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.c-info__dl {
+  width: 100%;
+}
+.c-info__row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid rgba(59,77,98,0.08);
+}
+.c-info__row:first-child {
+  border-top: 1px solid rgba(59,77,98,0.08);
+}
+.c-info__row dt,
+.c-info__row dd {
+  padding: 28px 0;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+.c-info__row dt {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding-right: 24px;
+}
+.c-info__row dd {
+  color: var(--text-sub);
+}
+.c-info__name-unit {
+  display: inline-block;
+  letter-spacing: 0.1872em;
+}
+.c-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.c-info__list li {
+  position: relative;
+  padding-left: 16px;
+}
+.c-info__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 6px;
+  height: 1px;
+  background: var(--accent-light);
+}
+.c-info__note {
+  font-size: 0.78rem;
+  color: var(--gray);
+  margin-left: 6px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .c-msg__grid { grid-template-columns: 1fr 280px; }
+  .c-msg__quote { padding: 48px 40px; }
+  .c-msg__name-block { padding: 32px 32px; }
+}
+
+@media (max-width: 768px) {
+  .c-hero { min-height: auto; }
+  .c-hero__inner { padding: 100px 20px 64px; }
+  .c-hero__label { font-size: 0.65rem; letter-spacing: 0.4em; margin-bottom: 20px; }
+  .c-hero__title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+
+  /* Message — 1列に崩す */
+  .c-msg__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: auto;
+  }
+  .c-msg__quote {
+    grid-row: auto;
+    grid-column: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(59,77,98,0.08);
+    padding: 40px 24px;
+    gap: 24px;
+  }
+  .c-msg__quote p { font-size: 1.3rem; }
+  .c-msg__name-block {
+    grid-column: auto;
+    padding: 28px 24px;
+  }
+  .c-msg__name-title { letter-spacing: 0.084em; }
+  .c-msg__name-kanji { font-size: 1.8rem; }
+  .c-msg__body { padding: 56px 24px; }
+  .c-msg__body-text { font-size: 0.95rem; }
+  .c-msg__grid::after {
+    font-size: clamp(3.5rem, 12vw, 5.5rem);
+    top: 32%;
+    left: 20px;
+  }
+
+  /* セクション見出し */
+  .c-sec-head { margin-bottom: 48px; }
+  .c-sec-head__en { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+  .c-sec-head__ja { font-size: 0.85rem; }
+
+  /* Company info */
+  .c-info__row { grid-template-columns: 1fr; }
+  .c-info__row dt {
+    padding: 20px 0 4px;
+    font-size: 0.82rem;
+    color: var(--accent);
+  }
+  .c-info__row dd {
+    padding: 4px 0 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .c-hero__inner { padding: 88px 16px 56px; }
+  .c-hero__title { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+
+  .c-msg__quote { padding: 32px 16px; }
+  .c-msg__quote p { font-size: 1.1rem; }
+  .c-msg__name-block { padding: 24px 16px; }
+  .c-msg__name-kanji { font-size: 1.56rem; }
+  .c-msg__body { padding: 40px 16px; }
+  .c-msg__body-text { font-size: 0.85rem; }
+
+  .c-sec-head__en { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+}
+
+@media (max-width: 360px) {
+  .c-hero__inner { padding: 80px 14px 48px; }
+  .c-hero__title { font-size: 1.15rem; }
+  .c-hero__label { font-size: 0.6rem; letter-spacing: 0.3em; }
+
+  .c-msg__quote { padding: 28px 14px; }
+  .c-msg__quote p { font-size: 1rem; }
+  .c-msg__name-block { padding: 20px 14px; }
+  .c-msg__name-kanji { font-size: 1.38rem; }
+  .c-msg__body { padding: 36px 14px; }
+}

@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# www あり → www なしに統一
+RewriteCond %{HTTP_HOST} ^www\.all-in-holdings\.co\.jp$ [NC]
+RewriteRule ^(.*)$ https://all-in-holdings.co.jp/$1 [R=301,L]
+
+# HTTP → HTTPS に強制リダイレクト
+RewriteCond %{HTTPS} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]

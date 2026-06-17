@@ -9,9 +9,9 @@
   <link rel="icon" href="logo-transparent-sm.png" type="image/png" />
   <link rel="apple-touch-icon" href="logo-transparent-sm.png" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css?v=20260309e" />
-  <link rel="stylesheet" href="recruit.css?v=20260308a" />
-  <link rel="stylesheet" href="value.css?v=20260308a" />
+  <link rel="stylesheet" href="style.css?v=20260617a" />
+  <link rel="stylesheet" href="recruit.css?v=20260617a" />
+  <link rel="stylesheet" href="value.css?v=20260617a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -29,9 +29,6 @@
   <div class="nav-overlay" id="navOverlay"></div>
   <nav class="header__nav" id="nav">
     <div class="header__nav-top">
-      <div class="header__nav-logo">
-        <img src="logo-transparent-sm.png" alt="ALL IN HOLDINGS" class="header__nav-logo-img" />
-      </div>
       <button class="header__nav-close" id="navClose" aria-label="閉じる">
         <span></span><span></span>
         <small class="header__nav-close-label">CLOSE</small>
@@ -40,10 +37,10 @@
     <ul class="header__nav-list">
       <li><a href="index.html">HOME</a></li>
       <li><a href="index.html#service">SERVICE</a></li>
-      <li><a href="value.html">VALUES</a></li>
+      <li><a href="achievement.html">ACHIEVEMENT</a></li>
       <li><a href="recruit.html">CAREERS</a></li>
-      <li><a href="company.html">COMPANY</a></li>
-    </ul>
+      <li><a href="philosophy.html">PHILOSOPHY</a></li>
+      <li><a href="company.html">COMPANY</a></li>    </ul>
     <a href="index.html#contact" class="btn btn--metallic header__nav-btn">CONTACT</a>
   </nav>
 
@@ -53,18 +50,91 @@
       <div class="r-hero__bg-grid"></div>
     </div>
     <div class="r-hero__inner">
-      <div class="r-hero__accent js-fadein"></div>
-      <p class="r-hero__label js-fadein">CAREERS</p>
+      <p class="r-hero__label js-fadein"><span class="r-hero__label-bar"></span>CAREERS</p>
       <h1 class="r-hero__title js-fadein">
-        過去はもう見ない。<br />
-        掴むのは未来、<br />
-        誰も見てない夢を見ろ。
+        ここは、起業家のための<br />
+        &ldquo;成長エンジン&rdquo;。
       </h1>
       <p class="r-hero__desc js-fadein">
-        学ぶだけの場所ではない。実際に経営する環境がここにある。<br class="pc-only" />
-        覚悟を持って飛び込む者だけを、ALL IN HOLDINGSは待っている。
+        自力なら10年かかる経営者の力を、わずか1年で。<br class="pc-only" />
+        学ぶのではなく、現場で&ldquo;動かしながら&rdquo;体得する。
       </p>
-      <a href="#entry" class="btn btn--metallic btn--large js-fadein">エントリーする</a>
+      <a href="#entry" class="btn btn--metallic btn--large btn--entry js-fadein">ENTRY</a>
+    </div>
+  </section>
+
+  <!-- ===== SKILL SET（身につく力 / ジグザグ） ===== -->
+  <section class="v-skills">
+    <div class="v-skills__bg"></div>
+    <div class="container v-skills__container">
+      <div class="v-sec-head v-sec-head--light js-fadein">
+        <h2 class="v-sec-head__en">Skill Set</h2>
+        <p class="v-sec-head__ja v-sec-head__ja--light">ALL INで身につく、3つの力</p>
+      </div>
+
+      <div class="v-skills__list">
+
+        <!-- 01 -->
+        <article class="v-skill v-skill--left js-fadein">
+          <div class="v-skill__num-wrap">
+            <span class="v-skill__num">01</span>
+            <span class="v-skill__num-bar"></span>
+          </div>
+          <div class="v-skill__body">
+            <p class="v-skill__cat">MANAGEMENT</p>
+            <h3 class="v-skill__title">経営を、動かす力</h3>
+            <p class="v-skill__lead">数字で経営を読み解き、組織と事業を“自分の手”で動かせるようになる。意思決定する側の視座が身につく。</p>
+            <ul class="v-skill__tags">
+              <li>KPI設計と経営会議の運営</li>
+              <li>月次レビューでPDCAを回す</li>
+              <li>組織設計・評価制度の構築</li>
+              <li>ブランド／ポジショニング戦略</li>
+              <li>提携交渉とPMO推進</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="v-skill v-skill--right js-fadein">
+          <div class="v-skill__num-wrap">
+            <span class="v-skill__num">02</span>
+            <span class="v-skill__num-bar"></span>
+          </div>
+          <div class="v-skill__body">
+            <p class="v-skill__cat">FINANCE</p>
+            <h3 class="v-skill__title">資本を、武器にする力</h3>
+            <p class="v-skill__lead">資金調達、投資・回収まで、資本の全工程を実戦で学ぶ。数字に強い経営者になる。</p>
+            <ul class="v-skill__tags">
+              <li>出資・増資による資金調達</li>
+              <li>融資・協調融資スキーム設計</li>
+              <li>事業計画／CFの精査</li>
+              <li>ROI・リスク評価の投資判断</li>
+              <li>M&A・IPOを見据えたEXIT</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="v-skill v-skill--left js-fadein">
+          <div class="v-skill__num-wrap">
+            <span class="v-skill__num">03</span>
+            <span class="v-skill__num-bar"></span>
+          </div>
+          <div class="v-skill__body">
+            <p class="v-skill__cat">EXPERTISE</p>
+            <h3 class="v-skill__title">事業を、支え切る力</h3>
+            <p class="v-skill__lead">戦略から財務・人事・法務・DXまで、経営に必要な専門知を横断で身につける。何が起きても自走できる。</p>
+            <ul class="v-skill__tags">
+              <li>中期計画・ポートフォリオ戦略</li>
+              <li>財務会計・予実・資金繰り</li>
+              <li>人事労務・組織文化デザイン</li>
+              <li>契約・知財・コンプライアンス</li>
+              <li>IT／DX 企画から運用まで</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -98,108 +168,57 @@
     </div>
   </section>
 
-  <!-- ===== TO THE TOP, TOGETHER. ===== -->
-  <section class="section" id="why">
-    <div class="container">
-      <div class="section__head js-fadein">
-        <h2 class="section__title r-why__title">TO THE TOP, TOGETHER.</h2>
+  <!-- ===== BEFORE → AFTER ===== -->
+  <section class="v-transform section">
+    <div class="v-transform__bg"></div>
+    <div class="container v-transform__container">
+      <div class="v-sec-head v-sec-head--light js-fadein">
+        <h2 class="v-sec-head__en">Transformation</h2>
+        <p class="v-sec-head__ja v-sec-head__ja--light">ALL INで何が変わるのか</p>
       </div>
-      <div class="r-why__grid">
-        <div class="r-why__card js-fadein">
-          <p class="r-why__card-index">01</p>
-          <h3 class="r-why__card-title">圧倒的な成長スピード</h3>
-          <p class="r-why__card-body">
-            通常10年かかる経験を1〜2年で積める環境。経営者直下で実際のビジネスの意思決定に携わり、プロ経営者として必要なスキルを最短で習得できます。
-          </p>
+
+      <div class="v-transform__grid">
+        <!-- BEFORE -->
+        <div class="v-transform__col v-transform__col--before js-fadein">
+          <p class="v-transform__col-label">BEFORE</p>
+          <ul class="v-transform__list">
+            <li>「経営をやりたい」という想いだけがある</li>
+            <li>部門の一部しか見えていない</li>
+            <li>意思決定は上司がする</li>
+            <li>失敗しても自分の人生は変わらない</li>
+            <li>「いつか独立」が口癖になっている</li>
+          </ul>
         </div>
-        <div class="r-why__card js-fadein">
-          <p class="r-why__card-index">02</p>
-          <h3 class="r-why__card-title">実力主義・成果報酬</h3>
-          <p class="r-why__card-body">
-            年齢・経歴に関わらず、実績と貢献度で評価。成果に見合った報酬と責任ある役割を早期から担えます。挑戦を全力でサポートする制度が整っています。
-          </p>
+
+        <!-- ARROW -->
+        <div class="v-transform__arrow js-fadein">
+          <span class="v-transform__arrow-line"></span>
+          <span class="v-transform__arrow-text">ALL IN</span>
+          <span class="v-transform__arrow-line"></span>
         </div>
-        <div class="r-why__card js-fadein">
-          <p class="r-why__card-index">03</p>
-          <h3 class="r-why__card-title">グローバルなネットワーク</h3>
-          <p class="r-why__card-body">
-            国内外の経営者・起業家・投資家との強固なネットワークにアクセス可能。世界を舞台に活躍するための人脈と機会を提供します。
-          </p>
-        </div>
-        <div class="r-why__card js-fadein">
-          <p class="r-why__card-index">04</p>
-          <h3 class="r-why__card-title">志の高い仲間</h3>
-          <p class="r-why__card-body">
-            「世界を変える」という共通の志を持つメンバーと切磋琢磨できる環境。互いに高め合い、刺激し合える最高のチームが待っています。
-          </p>
-        </div>
-        <div class="r-why__card js-fadein">
-          <p class="r-why__card-index">05</p>
-          <h3 class="r-why__card-title">経営の最前線</h3>
-          <p class="r-why__card-body">
-            「支援」ではなく「実践」。実際の経営現場で意思決定を重ね、PL責任を持ち、事業を動かす。机上の空論は一切ない。
-          </p>
-        </div>
-        <div class="r-why__card js-fadein">
-          <p class="r-why__card-index">06</p>
-          <h3 class="r-why__card-title">挑戦できる文化</h3>
-          <p class="r-why__card-body">
-            「壁は超えるためにある」という文化が根付いています。失敗を恐れず挑戦し続けることができる、心理的安全性の高い職場環境です。
-          </p>
+
+        <!-- AFTER -->
+        <div class="v-transform__col v-transform__col--after js-fadein">
+          <p class="v-transform__col-label">AFTER</p>
+          <ul class="v-transform__list">
+            <li>自分の判断で事業を動かしている</li>
+            <li>戦略・営業・組織・財務・法務を全て回す</li>
+            <li>最終意思決定者は自分</li>
+            <li>結果が自分の人生に直結する</li>
+            <li>独立か、グループ社長か、道を選べる立場にいる</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ===== POSITIONS ===== -->
-  <section class="section" id="positions">
-    <div class="container">
-      <div class="section__head js-fadein">
-        <p class="r-pos__label">POSITIONS</p>
-        <h2 class="r-pos__heading">経営者 / 経営者候補</h2>
-      </div>
-
-      <div class="r-pos js-fadein">
-        <p class="r-pos__desc">経営コンサルティング、M&A、事業再生、新規事業立ち上げ — あらゆる経営実務を現場で経験し、プロ経営者へと成長するポジション。<br />複数社の経営に携わりながら、自らも経営者としての意思決定力・実行力を鍛え上げる。</p>
-
-        <div class="r-pos__details">
-          <div class="r-pos__detail">
-            <span class="r-pos__detail-label">給与</span>
-            <span class="r-pos__detail-divider"></span>
-            <span class="r-pos__detail-value">年収1,000万〜3,000万円（経験・実績による）+ インセンティブ</span>
-          </div>
-          <div class="r-pos__detail">
-            <span class="r-pos__detail-label">勤務地</span>
-            <span class="r-pos__detail-divider"></span>
-            <span class="r-pos__detail-value">東京都</span>
-          </div>
-          <div class="r-pos__detail">
-            <span class="r-pos__detail-label">必須</span>
-            <span class="r-pos__detail-divider"></span>
-            <span class="r-pos__detail-value">経営者になる覚悟、ビジネス経験3年以上、論理的思考力</span>
-          </div>
-          <div class="r-pos__detail">
-            <span class="r-pos__detail-label">歓迎</span>
-            <span class="r-pos__detail-divider"></span>
-            <span class="r-pos__detail-value">経営経験、コンサルティング経験、起業経験、MBA</span>
-          </div>
-        </div>
-
-        <div class="r-pos__cta">
-          <a href="#entry" class="btn btn--metallic btn--large">エントリーする</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== JOURNEY ===== -->
-  <section class="v-journey section">
+  <!-- ===== JOURNEY → YOUR FUTURE（統合） ===== -->
+  <section class="v-path section">
     <div class="container">
       <div class="v-sec-head js-fadein">
-        <h2 class="v-sec-head__en">Journey</h2>
-        <p class="v-sec-head__ja">ALL INでの経営者への道</p>
+        <h2 class="v-sec-head__en">Owner's Road</h2>
+        <p class="v-sec-head__ja">ALL INでの経営者への道、そしてその先へ</p>
       </div>
 
       <div class="v-journey__timeline">
@@ -265,22 +284,26 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== YOUR FUTURE ===== -->
-  <section class="v-future section section--gray">
-    <div class="container">
-      <div class="v-sec-head js-fadein">
-        <h2 class="v-sec-head__en">Your Future</h2>
-        <p class="v-sec-head__ja">卒業後、あなたの人生はこう変わる</p>
+      <!-- 分岐コネクタ：1本の道が3つの未来へ -->
+      <div class="v-path__branch js-fadein" aria-hidden="true">
+        <span class="v-path__branch-node"></span>
+        <span class="v-path__branch-drop"></span>
+        <span class="v-path__branch-drop"></span>
+        <span class="v-path__branch-drop"></span>
+      </div>
+
+      <div class="v-path__future-head js-fadein">
+        <p class="v-path__future-en">Your Future</p>
+        <p class="v-path__future-ja">卒業後、3つの未来から、自分の道を選ぶ</p>
       </div>
 
       <div class="v-future__grid">
         <div class="v-future__card js-fadein">
           <div class="v-future__card-top">
+            <span class="v-future__bignum" aria-hidden="true">01</span>
             <span class="v-future__card-num">ROUTE 01</span>
-            <h3 class="v-future__card-title">子会社拡大型</h3>
+            <h3 class="v-future__card-title">子会社社長</h3>
             <p class="v-future__card-catch">HDと共に、事業を大きくし続ける</p>
           </div>
           <div class="v-future__card-bottom">
@@ -295,23 +318,8 @@
 
         <div class="v-future__card js-fadein">
           <div class="v-future__card-top">
+            <span class="v-future__bignum" aria-hidden="true">02</span>
             <span class="v-future__card-num">ROUTE 02</span>
-            <h3 class="v-future__card-title">株式買取・独立</h3>
-            <p class="v-future__card-catch">自分の会社を、自分のものにする</p>
-          </div>
-          <div class="v-future__card-bottom">
-            <p class="v-future__card-body">
-              育てた会社の株式をHDから買い取り、完全独立。<br />
-              ゼロから起業するリスクなく、<br />
-              すでに回っている事業のオーナーになれる。
-            </p>
-            <p class="v-future__card-life">自分が育てた会社の全権を握り、<br />自分の判断と責任だけで生きていく人生。</p>
-          </div>
-        </div>
-
-        <div class="v-future__card js-fadein">
-          <div class="v-future__card-top">
-            <span class="v-future__card-num">ROUTE 03</span>
             <h3 class="v-future__card-title">グループ社長</h3>
             <p class="v-future__card-catch">プロ経営者として、次のステージへ</p>
           </div>
@@ -324,7 +332,62 @@
             <p class="v-future__card-life">どんな事業でも結果を出せるプロ経営者として、<br />複数の会社を率いていく人生。</p>
           </div>
         </div>
+
+        <div class="v-future__card js-fadein">
+          <div class="v-future__card-top">
+            <span class="v-future__bignum" aria-hidden="true">03</span>
+            <span class="v-future__card-num">ROUTE 03</span>
+            <h3 class="v-future__card-title">オーナー社長</h3>
+            <p class="v-future__card-catch">自分の会社を、自分のものにする</p>
+          </div>
+          <div class="v-future__card-bottom">
+            <p class="v-future__card-body">
+              育てた会社の株式をHDから買い取り、完全独立。<br />
+              ゼロから起業するリスクなく、<br />
+              すでに回っている事業のオーナーになれる。
+            </p>
+            <p class="v-future__card-life">自分が育てた会社の全権を握り、<br />自分の判断と責任だけで生きていく人生。</p>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== POSITIONS ===== -->
+  <section class="section" id="positions">
+    <div class="container">
+      <div class="section__head js-fadein">
+        <p class="r-pos__label">POSITIONS</p>
+        <h2 class="r-pos__heading">経営者 / 経営者候補</h2>
+      </div>
+
+      <div class="r-pos js-fadein">
+        <p class="r-pos__desc">経営コンサルティング、M&A、事業再生、新規事業立ち上げ —<br />あらゆる経営実務を現場で経験し、プロ経営者へと成長するポジション。<br />複数社の経営に携わりながら、自らも経営者としての意思決定力・実行力を鍛え上げる。</p>
+
+        <div class="r-pos__details">
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">給与</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">年収1,000万〜3,000万円（経験・実績による）+ インセンティブ</span>
+          </div>
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">勤務地</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">東京都</span>
+          </div>
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">必須</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">経営者になる覚悟、ビジネス経験3年以上、論理的思考力</span>
+          </div>
+          <div class="r-pos__detail">
+            <span class="r-pos__detail-label">歓迎</span>
+            <span class="r-pos__detail-divider"></span>
+            <span class="r-pos__detail-value">経営経験、コンサルティング経験、起業経験、MBA</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -482,7 +545,7 @@
           </label>
         </div>
         <div class="form__submit">
-          <button type="submit" class="btn btn--metallic btn--large">エントリーする</button>
+          <button type="submit" class="btn btn--metallic btn--large btn--entry">ENTRY</button>
         </div>
       </form>
     </div>
@@ -495,16 +558,16 @@
       <div class="footer__top">
         <div class="footer__brand">
           <p class="footer__logo"><span class="footer__logo-allin">ALL IN</span> <span class="footer__logo-holdings">HOLDINGS</span></p>
-          <p class="footer__tagline">仕事・遊び全て本気で楽しみ<br />人生あっという間だったと<br />仲間と笑える未来に向かう</p>
+          <p class="footer__tagline">挑戦する人に、夢を描ける舞台を創る</p>
         </div>
         <nav class="footer__nav">
           <ul class="footer__nav-list">
             <li><a href="index.html">HOME</a></li>
             <li><a href="index.html#service">SERVICE</a></li>
-            <li><a href="value.html">VALUES</a></li>
+            <li><a href="achievement.html">ACHIEVEMENT</a></li>
             <li><a href="recruit.html">CAREERS</a></li>
-            <li><a href="company.html">COMPANY</a></li>
-            <li><a href="index.html#contact">CONTACT</a></li>
+            <li><a href="philosophy.html">PHILOSOPHY</a></li>
+            <li><a href="company.html">COMPANY</a></li>            <li><a href="index.html#contact">CONTACT</a></li>
           </ul>
         </nav>
         <p class="footer__info"><span class="footer__info-name">ALL IN HOLDINGS株式会社</span><br /><span class="footer__info-addr">東京都渋谷区渋谷3-25-7 Bre.S SHIBUYA 202</span></p>

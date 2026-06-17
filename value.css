@@ -13,62 +13,103 @@
 /* ===== HERO ===== */
 .v-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 78vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
 }
 .v-hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, #0A0A0A 0%, #1A1A1A 50%, #2A2A2A 100%);
+  background: linear-gradient(150deg, #EEF1F4 0%, #E0E3E7 50%, #D0D5DB 100%);
+}
+.v-hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(43,46,51,0.28), transparent 46%),
+    radial-gradient(circle at 8% 92%, rgba(184,190,198,0.10), transparent 42%);
 }
 .v-hero__bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(43,46,51,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,46,51,0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
+
+/* 斜めに流れる装飾ライン */
+.v-hero__deco {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.v-hero__deco-line {
+  position: absolute;
+  top: -20%;
+  height: 140%;
+  width: 1px;
+  transform: skewX(-13deg);
+  background: linear-gradient(to bottom, transparent, rgba(43,46,51,0.22), transparent);
+  animation: vHeroDrift 9s ease-in-out infinite;
+}
+.v-hero__deco-line:nth-child(1) { right: 24%; animation-delay: 0s; }
+.v-hero__deco-line:nth-child(2) {
+  right: 15%;
+  background: linear-gradient(to bottom, transparent, rgba(184,190,198,0.30), transparent);
+  animation-delay: -3s;
+}
+.v-hero__deco-line:nth-child(3) { right: 7%; animation-delay: -6s; }
+@keyframes vHeroDrift {
+  0%, 100% { transform: skewX(-13deg) translateY(0); opacity: 0.7; }
+  50%      { transform: skewX(-13deg) translateY(-26px); opacity: 1; }
+}
+
 .v-hero__inner {
   position: relative;
   z-index: 2;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 160px 24px 120px;
-}
-.v-hero__accent {
-  width: 40px;
-  height: 1px;
-  background: rgba(212,216,220,0.4);
-  margin-bottom: 24px;
+  padding: 170px 24px 120px;
 }
 .v-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
   font-family: var(--font-en);
   font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.6em;
-  color: rgba(212,216,220,0.5);
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  color: rgba(43,46,51,0.7);
   text-transform: uppercase;
   margin-bottom: 40px;
 }
+.v-hero__label-bar {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, #B8BEC6, #C8313A);
+}
 .v-hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.35;
   letter-spacing: 0.06em;
   margin-bottom: 36px;
-  background: linear-gradient(135deg, #B0B8BF 0%, #D4D8DC 30%, #F0F0F0 50%, #D4D8DC 70%, #B0B8BF 100%);
+  background: linear-gradient(135deg, #6B7178 0%, #50555C 30%, #3C4046 50%, #50555C 70%, #6B7178 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .v-hero__desc {
   font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  color: rgba(255,255,255,0.55);
+  color: rgba(43,46,51,0.55);
   line-height: 2.2;
   letter-spacing: 0.02em;
 }
@@ -80,9 +121,9 @@
   margin-bottom: 72px;
 }
 .v-sec-head__en {
-  font-family: var(--font-en);
+  font-family: var(--font-fr);
   font-size: clamp(3rem, 6vw, 4.8rem);
-  font-weight: 300;
+  font-weight: 600;
   font-style: normal;
   letter-spacing: 0.04em;
   color: var(--text);
@@ -96,13 +137,13 @@
   color: var(--accent);
 }
 .v-sec-head--light .v-sec-head__en {
-  background: linear-gradient(135deg, #3B4D62 0%, #5A7A95 25%, #8FAABD 50%, #C8D6E0 75%, #8FAABD 100%);
+  background: linear-gradient(135deg, #454A52 0%, #7A8088 25%, #5C636B 50%, #565C64 75%, #5C636B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .v-sec-head__ja--light {
-  color: rgba(200,214,224,0.8);
+  color: rgba(43,46,51,0.8);
 }
 
 
@@ -165,7 +206,7 @@
 }
 .v-question__clock-sep {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: rgba(59, 77, 98, 0.2);
+  color: rgba(120, 124, 130, 0.2);
   margin: 0 1px;
 }
 .v-question__clock-colon {
@@ -196,7 +237,15 @@
 .v-transform__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #0D1520 0%, #1A2A3C 55%, #263846 100%);
+  background: linear-gradient(145deg, #EEF1F4 0%, #E0E3E7 55%, #D0D5DB 100%);
+}
+.v-transform__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(43,46,51,0.22), transparent 44%),
+    radial-gradient(circle at 6% 88%, rgba(184,190,198,0.10), transparent 40%);
 }
 .v-transform__container {
   position: relative;
@@ -213,13 +262,13 @@
   border-radius: 8px;
 }
 .v-transform__col--before {
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(43,46,51,0.08);
+  background: rgba(43,46,51,0.03);
 }
 .v-transform__col--after {
-  border: 1px solid rgba(90,122,149,0.25);
-  background: rgba(59,77,98,0.06);
-  border-top: 2px solid rgba(90,122,149,0.4);
+  border: 1px solid rgba(43,46,51,0.25);
+  background: rgba(120,124,130,0.06);
+  border-top: 2px solid rgba(43,46,51,0.4);
 }
 .v-transform__col-label {
   font-family: var(--font-en);
@@ -229,12 +278,12 @@
   margin-bottom: 32px;
 }
 .v-transform__col--before .v-transform__col-label {
-  color: rgba(200,214,224,0.35);
+  color: rgba(43,46,51,0.55);
 }
 .v-transform__col--after .v-transform__col-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 0.35em;
-  background: linear-gradient(90deg, #5A7A95, #8FAABD, #C8D6E0);
+  background: linear-gradient(90deg, #3C4046, #2B2E33, #3C4046);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -252,7 +301,7 @@
   position: relative;
 }
 .v-transform__col--before .v-transform__list li {
-  color: rgba(255,255,255,0.4);
+  color: rgba(43,46,51,0.65);
 }
 .v-transform__col--before .v-transform__list li::before {
   content: '';
@@ -261,13 +310,14 @@
   top: 0.75em;
   width: 8px;
   height: 1px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(43,46,51,0.2);
 }
 .v-transform__col--after .v-transform__list li {
   font-family: var(--font-display);
-  color: rgba(255,255,255,0.9);
-  font-weight: 500;
-  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.12rem;
+  line-height: 1.85;
   letter-spacing: 0.04em;
 }
 .v-transform__col--after .v-transform__list li::before {
@@ -277,7 +327,7 @@
   top: 0.7em;
   width: 12px;
   height: 2px;
-  background: linear-gradient(90deg, #5A7A95, #8FAABD);
+  background: linear-gradient(90deg, #7A8088, #5C636B);
 }
 
 /* Arrow */
@@ -292,20 +342,34 @@
   display: block;
   width: 1px;
   height: 60px;
-  background: linear-gradient(to bottom, transparent, rgba(200,214,224,0.3));
+  background: linear-gradient(to bottom, transparent, rgba(43,46,51,0.3));
 }
 .v-transform__arrow-line:last-child {
-  background: linear-gradient(to bottom, rgba(200,214,224,0.3), transparent);
+  background: linear-gradient(to bottom, rgba(43,46,51,0.3), transparent);
 }
 .v-transform__arrow-text {
   font-family: var(--font-en);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.3em;
-  color: rgba(200,214,224,0.5);
   writing-mode: vertical-lr;
   text-orientation: mixed;
   white-space: nowrap;
+  background: linear-gradient(to bottom, #7A8088, #C8313A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 左右からのスライドイン（Skill Set と挙動を統一） */
+.v-transform__col.js-fadein {
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.v-transform__col--before.js-fadein { transform: translateX(-48px); }
+.v-transform__col--after.js-fadein { transform: translateX(48px); }
+.v-transform__col.js-fadein.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 
@@ -345,18 +409,29 @@
 }
 .v-journey__step-line {
   display: block;
-  width: 1px;
+  width: 2px;
   flex: 1;
-  background: rgba(0,0,0,0.12);
   margin-top: 8px;
+  background-image:
+    linear-gradient(180deg, transparent 0%, rgba(200,49,58,0.9) 50%, transparent 100%),
+    linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12));
+  background-size: 100% 45%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 -45%, 0 0;
+  animation: flow-down 1.9s linear infinite;
+}
+/* 下方向に流れる線 */
+@keyframes flow-down {
+  0%   { background-position: 0 -120%, 0 0; }
+  100% { background-position: 0 220%, 0 0; }
 }
 .v-journey__step-phase {
   font-family: var(--font-en);
-  font-size: 0.68rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--accent-light);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .v-journey__step-title {
   font-family: var(--font-display);
@@ -367,9 +442,106 @@
   margin-bottom: 16px;
 }
 .v-journey__step-body {
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   color: var(--text-sub);
   line-height: 2.1;
+}
+
+
+/* ===== JOURNEY → FUTURE 分岐コネクタ ===== */
+.v-path__branch {
+  position: relative;
+  width: 100%;
+  height: 132px;
+  margin: 48px auto 0;
+}
+.v-path__branch::before {
+  /* 幹：中央の縦線（下方向に流れる） */
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 2px;
+  height: 56px;
+  transform: translateX(-50%);
+  background-image:
+    linear-gradient(180deg, transparent 0%, rgba(200,49,58,0.95) 50%, transparent 100%),
+    linear-gradient(180deg, rgba(69,74,82,0.55), rgba(200,49,58,0.7));
+  background-size: 100% 45%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 -45%, 0 0;
+  animation: flow-down 1.7s linear infinite;
+}
+.v-path__branch::after {
+  /* バス：横線（3列の中心を結ぶ） */
+  content: '';
+  position: absolute;
+  top: 68px;
+  left: 16.667%;
+  right: 16.667%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(200,49,58,0.55), rgba(69,74,82,0.45) 50%, rgba(200,49,58,0.55));
+}
+.v-path__branch-node {
+  /* 分岐点のひし形 */
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #C8313A;
+  box-shadow: 0 0 0 5px rgba(200,49,58,0.12);
+}
+.v-path__branch-drop {
+  /* 枝：各カードへ落とす縦線（下方向に流れる） */
+  position: absolute;
+  top: 68px;
+  width: 2px;
+  height: 56px;
+  transform: translateX(-50%);
+  background-image:
+    linear-gradient(180deg, transparent 0%, rgba(200,49,58,0.95) 50%, transparent 100%),
+    linear-gradient(180deg, rgba(69,74,82,0.45), rgba(200,49,58,0.65));
+  background-size: 100% 45%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 -45%, 0 0;
+  animation: flow-down 1.7s linear infinite;
+}
+.v-path__branch-drop::after {
+  /* カードへ刺さるひし形 */
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateX(-50%) rotate(45deg);
+  background: #C8313A;
+}
+.v-path__branch-drop:nth-child(2) { left: 16.667%; }
+.v-path__branch-drop:nth-child(3) { left: 50%; }
+.v-path__branch-drop:nth-child(4) { left: 83.333%; }
+
+/* Future 小見出し */
+.v-path__future-head {
+  text-align: center;
+  margin: 36px 0 60px;
+}
+.v-path__future-en {
+  font-family: var(--font-en);
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  color: var(--text);
+}
+.v-path__future-ja {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-top: 10px;
 }
 
 
@@ -380,39 +552,99 @@
   gap: 24px;
 }
 .v-future__card {
-  border-radius: 10px;
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition);
+  /* 右上・左下を斜めカット（長方形をやめる） */
+  clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 36px 100%, 0 calc(100% - 36px));
+  transition: transform var(--transition), filter var(--transition);
 }
 .v-future__card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  filter: drop-shadow(0 16px 26px rgba(40,46,54,0.22));
 }
 .v-future__card-top {
-  background: linear-gradient(135deg, #1A2A3C 0%, #263846 40%, #3B4D62 100%);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E4E9ED 38%, #C5CCD3 68%, #DCE1E6 100%);
   padding: 40px 32px 32px;
 }
+/* 文字の背後（ヘッダー背景）を流れる光 */
+.v-future__card-top::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,0.55) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 1;
+  animation: card-sweep 5s linear infinite;
+}
+@keyframes card-sweep {
+  0%   { transform: translateX(-160%); }
+  100% { transform: translateX(330%); }
+}
+/* 大きな番号のウォーターマーク（数字は非表示） */
+.v-future__bignum {
+  display: none;
+  position: absolute;
+  top: auto;
+  bottom: -18px;
+  right: 12px;
+  font-family: var(--font-en);
+  font-size: 7.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.16);
+  pointer-events: none;
+  z-index: 1;
+  transition: color var(--transition);
+}
+.v-future__card:hover .v-future__bignum {
+  color: rgba(255,255,255,0.26);
+}
 .v-future__card-num {
-  display: block;
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--font-en);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.25em;
-  color: rgba(200,214,224,0.4);
+  color: rgba(43,46,51,0.6);
   margin-bottom: 16px;
 }
+.v-future__card-num::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: #C8313A;
+  transform: rotate(45deg);
+}
 .v-future__card-title {
+  position: relative;
+  z-index: 2;
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--white);
   letter-spacing: 0.04em;
   margin-bottom: 12px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: var(--accent-dark);
 }
+/* 流れる光を1枚ずつ時間差で */
+.v-future__card:nth-child(1) .v-future__card-top::after { animation-delay: 0s; }
+.v-future__card:nth-child(2) .v-future__card-top::after { animation-delay: 1.6s; }
+.v-future__card:nth-child(3) .v-future__card-top::after { animation-delay: 3.2s; }
 .v-future__card-catch {
+  position: relative;
+  z-index: 2;
   font-size: 0.85rem;
-  color: rgba(200,214,224,0.6);
+  color: rgba(43,46,51,0.7);
   letter-spacing: 0.04em;
 }
 .v-future__card-bottom {
@@ -423,24 +655,36 @@
   flex-direction: column;
   border: 1px solid rgba(0,0,0,0.06);
   border-top: none;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0;
 }
 .v-future__card-body {
-  font-size: 0.9rem;
+  font-size: 0.96rem;
   color: var(--text-sub);
   line-height: 2;
   margin-bottom: 24px;
   flex: 1;
 }
 .v-future__card-life {
+  position: relative;
+  flex-shrink: 0;
+  height: 116px;
   font-family: var(--font-display);
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1.9;
   padding-top: 20px;
   border-top: 1px solid rgba(0,0,0,0.08);
   letter-spacing: 0.02em;
+}
+.v-future__card-life::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #C8313A, transparent);
 }
 
 
@@ -453,7 +697,7 @@
 .v-allin__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, #050A12 0%, #0D1520 30%, #1A2A3C 70%, #0D1520 100%);
+  background: linear-gradient(160deg, #F6F8FA 0%, #EEF1F4 30%, #D6DAE0 70%, #EEF1F4 100%);
 }
 .v-allin__inner {
   position: relative;
@@ -470,14 +714,25 @@
   letter-spacing: 0.1em;
   line-height: 1;
   margin-bottom: 24px;
-  background: linear-gradient(135deg, #3B4D62 0%, #5A7A95 20%, #8FAABD 40%, #C8D6E0 50%, #8FAABD 60%, #5A7A95 80%, #3B4D62 100%);
+  background-image:
+    linear-gradient(100deg, transparent 0%, transparent 40%, rgba(255,255,255,0.95) 50%, transparent 60%, transparent 100%),
+    linear-gradient(180deg, #EEF2F5 0%, #C2C9D0 22%, #7A8088 47%, #565C64 52%, #AEB5BD 70%, #E8EEF2 88%, #9AA0A7 100%);
+  background-size: 250% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0, 0 0;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: allin-shine 5s linear infinite;
+}
+/* 折り返しなし・一方向に流れるメタリックシルバーのシャイン */
+@keyframes allin-shine {
+  0%   { background-position: 220% 0, 0 0; }
+  100% { background-position: -120% 0, 0 0; }
 }
 .v-allin__subtitle {
   font-size: 1rem;
-  color: rgba(200,214,224,0.4);
+  color: rgba(43,46,51,0.4);
   letter-spacing: 0.15em;
   margin-bottom: 80px;
 }
@@ -497,7 +752,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   font-style: normal;
-  color: rgba(90,122,149,0.4);
+  color: rgba(43,46,51,0.4);
   margin-bottom: 20px;
   letter-spacing: 0.04em;
 }
@@ -505,7 +760,7 @@
   font-family: var(--font-display);
   font-size: 1.18rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.8);
+  color: rgba(43,46,51,0.8);
   letter-spacing: 0.12em;
 }
 .v-allin__message {
@@ -518,10 +773,232 @@
   font-weight: 600;
   line-height: 2;
   letter-spacing: 0.08em;
-  background: linear-gradient(135deg, #5A7A95 0%, #8FAABD 30%, #C8D6E0 50%, #8FAABD 70%, #5A7A95 100%);
+  background: linear-gradient(135deg, #7A8088 0%, #5C636B 30%, #565C64 50%, #5C636B 70%, #7A8088 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+
+/* ===== SKILL SET（身につく力 / 斜め・ジグザグ） ===== */
+.v-skills {
+  position: relative;
+  padding: 200px 0;
+  overflow: hidden;
+}
+.v-skills__bg {
+  position: absolute;
+  inset: -2px 0;
+  background: linear-gradient(150deg, #EEF1F4 0%, #E0E3E7 55%, #D0D5DB 100%);
+  clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 calc(100% - 4vw));
+}
+.v-skills__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43,46,51,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,46,51,0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.v-skills__container {
+  position: relative;
+  z-index: 1;
+}
+
+/* リード */
+.v-skills__lead {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 110px;
+}
+.v-skills__lead-main {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.v-skills__lead-em {
+  background: linear-gradient(135deg, #5C636B 0%, #565C64 45%, #B8BEC6 110%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.v-skills__lead-sub {
+  font-size: clamp(0.92rem, 1.6vw, 1.12rem);
+  color: rgba(43,46,51,0.6);
+  letter-spacing: 0.06em;
+  line-height: 2;
+}
+
+/* ジグザグ・リスト */
+.v-skills__list {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.v-skill {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: 56px;
+  align-items: center;
+}
+.v-skill--right {
+  grid-template-columns: 1.35fr 0.65fr;
+}
+.v-skill--right .v-skill__num-wrap { order: 2; }
+.v-skill--right .v-skill__body {
+  order: 1;
+  text-align: left;
+}
+
+/* 斜めの番号パネル（鏡面シルバー・装飾） */
+.v-skill__num-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 168px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E4E9ED 38%, #C5CCD3 68%, #DCE1E6 100%);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 0 0 1px rgba(154,160,167,0.25),
+    0 14px 30px rgba(40,46,54,0.14);
+  transform: skewX(-7deg);
+  overflow: hidden;
+}
+/* メタリックな光のスジ（装飾） */
+.v-skill__num-wrap::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -5%;
+  width: 38%;
+  height: 140%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%);
+  transform: rotate(6deg);
+  pointer-events: none;
+}
+/* 右上の赤いコーナーアクセント（装飾） */
+.v-skill__num-wrap::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+  border-top: 2px solid rgba(200,49,58,0.9);
+  border-right: 2px solid rgba(200,49,58,0.9);
+}
+.v-skill__num {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-en);
+  font-size: clamp(3.4rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  transform: skewX(7deg);
+  background: linear-gradient(180deg, #5C636B 0%, #2B2E33 48%, #4A4F56 54%, #6B7178 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.v-skill__num-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 24%;
+  width: 60%;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(200,49,58,0.85), transparent);
+  z-index: 1;
+}
+
+/* テキスト側 */
+.v-skill__cat {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: rgba(43,46,51,0.7);
+  margin-bottom: 14px;
+}
+.v-skill__title {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+.v-skill__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #B8BEC6, #C8313A);
+}
+.v-skill--right .v-skill__title::after {
+  left: 0;
+  right: auto;
+}
+.v-skill__lead {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  color: rgba(43,46,51,0.78);
+  line-height: 1.95;
+  letter-spacing: 0.03em;
+  margin-bottom: 28px;
+}
+.v-skill__tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 214px);
+  gap: 10px;
+  justify-content: start;
+}
+.v-skill--right .v-skill__tags {
+  justify-content: start;
+}
+.v-skill__tags li {
+  font-size: 0.82rem;
+  color: rgba(43,46,51,0.85);
+  letter-spacing: 0.02em;
+  padding: 9px 12px;
+  text-align: center;
+  border: 1px solid rgba(43,46,51,0.25);
+  border-radius: 999px;
+  background: rgba(43,46,51,0.03);
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.v-skill__tags li:hover {
+  background: rgba(200,49,58,0.12);
+  border-color: rgba(200,49,58,0.55);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* 左右からのスライドイン（js-fadein を方向付け） */
+.v-skill.js-fadein {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.v-skill--left.js-fadein { transform: translateX(-64px); }
+.v-skill--right.js-fadein { transform: translateX(64px); }
+.v-skill.js-fadein.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 
@@ -564,10 +1041,10 @@
 
 @media (max-width: 768px) {
   /* Hero */
-  .v-hero { min-height: 80vh; }
-  .v-hero__inner { padding: 120px 20px 80px; }
+  .v-hero { min-height: 70vh; }
+  .v-hero__inner { padding: 130px 20px 80px; }
   .v-hero__label { font-size: 0.65rem; letter-spacing: 0.4em; margin-bottom: 28px; }
-  .v-hero__title { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+  .v-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
 
   /* 見出し */
   .v-sec-head { margin-bottom: 48px; }
@@ -600,8 +1077,8 @@
     padding: 20px 0;
   }
   .v-transform__arrow-line { width: 40px; height: 1px; }
-  .v-transform__arrow-line:last-child { background: linear-gradient(to right, rgba(200,214,224,0.3), transparent); }
-  .v-transform__arrow-line:first-child { background: linear-gradient(to right, transparent, rgba(200,214,224,0.3)); }
+  .v-transform__arrow-line:last-child { background: linear-gradient(to right, rgba(43,46,51,0.3), transparent); }
+  .v-transform__arrow-line:first-child { background: linear-gradient(to right, transparent, rgba(43,46,51,0.3)); }
   .v-transform__arrow-text {
     writing-mode: horizontal-tb;
     font-size: 0.6rem;
@@ -610,12 +1087,19 @@
   /* Journey */
   .v-journey__step { gap: 20px; padding-bottom: 40px; }
   .v-journey__step-title { font-size: 1.1rem; }
-  .v-journey__step-body { font-size: 0.88rem; }
+  .v-journey__step-body { font-size: 0.95rem; }
 
   /* Future */
   .v-future__grid { grid-template-columns: 1fr; }
   .v-future__card-top { padding: 32px 24px 24px; }
   .v-future__card-bottom { padding: 24px; }
+  /* 分岐コネクタは中央の幹のみに（1列レイアウト） */
+  .v-path__branch { height: 52px; }
+  .v-path__branch::after { display: none; }
+  .v-path__branch-drop:nth-child(2),
+  .v-path__branch-drop:nth-child(4) { display: none; }
+  .v-path__branch-drop:nth-child(3) { left: 50%; top: 24px; height: 28px; }
+  .v-path__future-head { margin: 4px 0 32px; }
 
   /* ALL IN */
   .v-allin { padding: 100px 0; }
@@ -626,14 +1110,33 @@
   .v-allin__pillar-text { font-size: 1rem; }
   .v-allin__message-text { font-size: clamp(1.1rem, 3.5vw, 1.4rem); }
 
+  /* Skill Set */
+  .v-skills { padding: 120px 0; }
+  .v-skills__bg { clip-path: polygon(0 6vw, 100% 0, 100% 100%, 0 calc(100% - 6vw)); }
+  .v-skills__lead { margin-bottom: 64px; }
+  .v-skills__list { gap: 56px; }
+  .v-skill,
+  .v-skill--right { grid-template-columns: 1fr; gap: 24px; }
+  .v-skill__num-wrap,
+  .v-skill--right .v-skill__num-wrap { order: 0; min-height: 130px; transform: skewX(-5deg); }
+  .v-skill__body,
+  .v-skill--right .v-skill__body { order: 0; text-align: left; }
+  .v-skill__num { font-size: clamp(3.6rem, 16vw, 5.5rem); }
+  .v-skill--right .v-skill__title::after { left: 0; right: auto; }
+  .v-skill__tags,
+  .v-skill--right .v-skill__tags { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); justify-content: start; }
+  /* モバイルは縦方向のフェードに統一 */
+  .v-skill--left.js-fadein,
+  .v-skill--right.js-fadein { transform: translateY(40px); }
+
   /* CTA */
   .v-cta { padding: 72px 0; }
   .v-cta__catch { font-size: clamp(1.2rem, 4vw, 1.5rem); }
 }
 
 @media (max-width: 480px) {
-  .v-hero__inner { padding: 100px 16px 64px; }
-  .v-hero__title { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  .v-hero__inner { padding: 110px 16px 64px; }
+  .v-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
   .v-hero__desc { font-size: 0.88rem; }
 
   .v-sec-head__en { font-size: clamp(1.8rem, 8vw, 2.4rem); }
@@ -662,7 +1165,7 @@
 }
 
 @media (max-width: 360px) {
-  .v-hero__inner { padding: 88px 14px 56px; }
-  .v-hero__title { font-size: 1.15rem; }
+  .v-hero__inner { padding: 110px 16px 64px; }
+  .v-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
   .v-hero__label { font-size: 0.6rem; letter-spacing: 0.3em; }
 }

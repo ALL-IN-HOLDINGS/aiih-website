@@ -140,7 +140,7 @@ countEls.forEach(el => numberObserver.observe(el));
 
 
 // ===== サービスカード: スクロールで自動ホバー =====
-const serviceCards = document.querySelectorAll('.service__card');
+const serviceCards = document.querySelectorAll('.service__set');
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
 if (serviceCards.length) {
@@ -173,7 +173,7 @@ if (serviceCards.length) {
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const siblings = [...entry.target.parentElement.querySelectorAll('.service__card')];
+          const siblings = [...entry.target.parentElement.querySelectorAll('.service__set')];
           const idx = siblings.indexOf(entry.target);
           setTimeout(() => {
             entry.target.classList.add('is-hovered');

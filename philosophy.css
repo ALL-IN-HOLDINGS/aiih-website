@@ -1,0 +1,406 @@
+/* ===========================
+   ALL IN HOLDINGS — philosophy.css
+   フィロソフィーページ（ダーク・メタリック）
+   =========================== */
+
+.pc-br { display: inline; }
+.header.is-scrolled {
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 2px 20px rgba(40,46,54,0.10);
+}
+
+
+/* ===== HERO ===== */
+.ph-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.ph-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, #EEF1F4 0%, #E0E3E7 50%, #D0D5DB 100%);
+}
+.ph-hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(43,46,51,0.20), transparent 46%),
+    radial-gradient(circle at 8% 92%, rgba(184,190,198,0.08), transparent 42%);
+}
+.ph-hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43,46,51,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,46,51,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* 斜めに流れる装飾ライン */
+.ph-hero__deco { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.ph-hero__deco-line {
+  position: absolute;
+  top: -20%;
+  height: 140%;
+  width: 1px;
+  transform: skewX(-13deg);
+  background: linear-gradient(to bottom, transparent, rgba(43,46,51,0.28), transparent);
+  animation: phDrift 9s ease-in-out infinite;
+}
+.ph-hero__deco-line:nth-child(1) { right: 24%; animation-delay: 0s; }
+.ph-hero__deco-line:nth-child(2) { right: 15%; background: linear-gradient(to bottom, transparent, rgba(184,190,198,0.30), transparent); animation-delay: -3s; }
+.ph-hero__deco-line:nth-child(3) { right: 7%; animation-delay: -6s; }
+@keyframes phDrift {
+  0%, 100% { transform: skewX(-13deg) translateY(0); opacity: 0.7; }
+  50%      { transform: skewX(-13deg) translateY(-26px); opacity: 1; }
+}
+
+.ph-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 170px 24px 120px;
+}
+.ph-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  color: rgba(43,46,51,0.7);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.ph-hero__label-bar {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, #B8BEC6, #C8313A);
+}
+.ph-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  margin-bottom: 36px;
+  background: linear-gradient(135deg, #3C4046 0%, #5C636B 35%, #3C4046 55%, #7A8088 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-hero__desc {
+  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  color: rgba(43,46,51,0.7);
+  line-height: 2.2;
+  letter-spacing: 0.03em;
+}
+
+
+/* ===== 共通：ラベル ===== */
+.ph-statement__label {
+  font-family: var(--font-fr);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #3C4046 0%, #6B7178 50%, #2B2E33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ===== VISION（ステートメント） ===== */
+.ph-statement__inner {
+  max-width: 860px;
+  text-align: center;
+}
+.ph-statement__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+  background: linear-gradient(180deg, #3C4046 0%, #5C636B 55%, #2B2E33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-statement__rule {
+  width: 64px;
+  height: 2px;
+  margin: 0 auto 36px;
+  background: linear-gradient(90deg, #6B7178, #B8BEC6);
+}
+.ph-statement__body {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  color: var(--text-sub);
+  line-height: 2.2;
+  letter-spacing: 0.03em;
+}
+.ph-statement__body + .ph-statement__body { margin-top: 20px; }
+
+
+/* ===== MISSION（ダーク帯） ===== */
+.ph-mission {
+  position: relative;
+  padding: 140px 0;
+  overflow: hidden;
+}
+.ph-mission__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #EEF1F4 0%, #E0E3E7 55%, #D0D5DB 100%);
+  clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+}
+.ph-mission__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43,46,51,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,46,51,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.ph-mission__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  text-align: center;
+}
+.ph-statement__label--light {
+  background: linear-gradient(90deg, #3C4046 0%, #565C64 50%, #7A8088 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-mission__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #3C4046 0%, #565C64 45%, #3C4046 60%, #6B7178 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-mission__body {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(43,46,51,0.75);
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+}
+
+
+/* ===== VALUE（Skill Set 参考のジグザグ） ===== */
+.ph-values {
+  position: relative;
+  padding: 160px 0;
+  overflow: hidden;
+}
+.ph-values__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+}
+.ph-values__container { position: relative; z-index: 1; }
+
+.ph-sec-head { text-align: center; margin-bottom: 84px; }
+.ph-sec-head__en {
+  font-family: var(--font-fr);
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #3C4046 0%, #5C636B 40%, #2B2E33 75%, #5C636B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-sec-head__ja {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--text-sub);
+}
+
+.ph-values__list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.ph-value {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 48px;
+  align-items: center;
+}
+.ph-value--right { grid-template-columns: 1.3fr 0.7fr; }
+.ph-value--right .ph-value__num-wrap { order: 2; }
+.ph-value--right .ph-value__body { order: 1; text-align: right; }
+
+.ph-value__num-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  /* 囲い（背景・枠・斜め）を撤去 */
+  background: none;
+  border: none;
+  border-radius: 0;
+  transform: none;
+  overflow: visible;
+}
+.ph-value__num {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-en);
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #3C4046 0%, #5C636B 35%, #2B2E33 60%, #5C636B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* 数字を貫通する横ライン */
+.ph-value__num-bar {
+  position: absolute;
+  top: 50%;
+  left: -24%;
+  width: 148%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, #6B7178 22%, #B8BEC6 50%, #6B7178 78%, transparent);
+  z-index: 0;
+}
+
+.ph-value__cat {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: rgba(43,46,51,0.7);
+  margin-bottom: 14px;
+}
+.ph-value__title {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #3C4046 0%, #5C636B 55%, #7A8088 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-value__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #6B7178, #B8BEC6);
+}
+.ph-value--right .ph-value__title::after { left: auto; right: 0; }
+.ph-value__lead {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  color: rgba(43,46,51,0.7);
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+}
+
+/* 左右スライドイン */
+.ph-value.js-fadein {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ph-value--left.js-fadein { transform: translateX(-60px); }
+.ph-value--right.js-fadein { transform: translateX(60px); }
+.ph-value.js-fadein.is-visible { opacity: 1; transform: translateX(0); }
+
+
+/* ===== ABOUT ===== */
+.ph-about__inner { max-width: 800px; text-align: center; }
+.ph-about__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+  background: linear-gradient(180deg, #3C4046 0%, #5C636B 55%, #2B2E33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ph-about__body {
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  color: var(--text-sub);
+  line-height: 2.2;
+  letter-spacing: 0.03em;
+}
+.ph-about__body + .ph-about__body { margin-top: 20px; }
+.ph-about__btn { margin-top: 48px; padding-left: 64px; padding-right: 64px; }
+
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .pc-br { display: none; }
+
+  .ph-hero { min-height: 70vh; }
+  .ph-hero__inner { padding: 130px 20px 80px; }
+  .ph-hero__label { font-size: 0.65rem; letter-spacing: 0.4em; margin-bottom: 28px; }
+
+  .ph-statement__heading { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+  .ph-mission { padding: 100px 0; }
+  .ph-mission__bg { clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 calc(100% - 5vw)); }
+  .ph-mission__heading { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+  .ph-values { padding: 100px 0; }
+  .ph-sec-head { margin-bottom: 56px; }
+  .ph-sec-head__en { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  .ph-values__list { gap: 48px; }
+  .ph-value,
+  .ph-value--right { grid-template-columns: 1fr; gap: 20px; }
+  .ph-value__num-wrap,
+  .ph-value--right .ph-value__num-wrap { order: 0; min-height: 96px; transform: none; }
+  .ph-value__body,
+  .ph-value--right .ph-value__body { order: 0; text-align: left; }
+  .ph-value__num { font-size: clamp(2.6rem, 12vw, 3.8rem); }
+  .ph-value--right .ph-value__title::after { left: 0; right: auto; }
+  .ph-value--left.js-fadein,
+  .ph-value--right.js-fadein { transform: translateY(40px); }
+}
+
+@media (max-width: 480px) {
+  .ph-hero__inner { padding: 110px 16px 64px; }
+  .ph-hero__desc { font-size: 0.9rem; line-height: 2; }
+  .ph-statement__heading,
+  .ph-mission__heading,
+  .ph-about__heading { font-size: clamp(1.3rem, 6.5vw, 1.7rem); }
+  .ph-sec-head__en { font-size: clamp(1.9rem, 10vw, 2.6rem); }
+}

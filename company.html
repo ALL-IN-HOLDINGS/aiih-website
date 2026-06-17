@@ -9,8 +9,9 @@
   <link rel="icon" href="logo-transparent-sm.png" type="image/png" />
   <link rel="apple-touch-icon" href="logo-transparent-sm.png" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css?v=20260309e" />
-  <link rel="stylesheet" href="company.css?v=20260313a" />
+  <link rel="stylesheet" href="style.css?v=20260617a" />
+  <link rel="stylesheet" href="company.css?v=20260617a" />
+  <link rel="stylesheet" href="group.css?v=20260617a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Shippori+Mincho+B1:wght@500;600;700&family=Yuji+Mai&display=swap" rel="stylesheet" />
@@ -28,9 +29,6 @@
   <div class="nav-overlay" id="navOverlay"></div>
   <nav class="header__nav" id="nav">
     <div class="header__nav-top">
-      <div class="header__nav-logo">
-        <img src="logo-transparent-sm.png" alt="ALL IN HOLDINGS" class="header__nav-logo-img" />
-      </div>
       <button class="header__nav-close" id="navClose" aria-label="閉じる">
         <span></span><span></span>
         <small class="header__nav-close-label">CLOSE</small>
@@ -39,10 +37,10 @@
     <ul class="header__nav-list">
       <li><a href="index.html">HOME</a></li>
       <li><a href="index.html#service">SERVICE</a></li>
-      <li><a href="value.html">VALUES</a></li>
+      <li><a href="achievement.html">ACHIEVEMENT</a></li>
       <li><a href="recruit.html">CAREERS</a></li>
-      <li><a href="company.html">COMPANY</a></li>
-    </ul>
+      <li><a href="philosophy.html">PHILOSOPHY</a></li>
+      <li><a href="company.html">COMPANY</a></li>    </ul>
     <a href="index.html#contact" class="btn btn--metallic header__nav-btn">CONTACT</a>
   </nav>
 
@@ -50,50 +48,33 @@
   <section class="c-hero">
     <div class="c-hero__bg">
       <div class="c-hero__bg-grid"></div>
+      <span class="c-hero__glow" aria-hidden="true"></span>
     </div>
     <div class="c-hero__inner">
-      <div class="c-hero__accent js-fadein"></div>
       <p class="c-hero__label js-fadein">COMPANY</p>
-      <h1 class="c-hero__title js-fadein">
-        覚悟が、未来を拓く。
-      </h1>
-      <p class="c-hero__desc js-fadein">
-        ALL IN HOLDINGSは、次世代の経営者を育成し、<br class="pc-only" />
-        日本から世界へインパクトを与え続ける経営集団です。
-      </p>
+      <h1 class="c-hero__title js-fadein">挑戦する人が<em>成長</em>し、<br />未来をつくっていく。</h1>
+      <p class="c-hero__en js-fadein">Those who challenge grow, and create the future.</p>
     </div>
   </section>
 
   <!-- ===== MESSAGE ===== -->
   <section class="c-msg" id="message">
-    <div class="c-msg__grid js-fadein">
-      <!-- 左：MESSAGE縦書き -->
-      <div class="c-msg__label">
-        <span>MESSAGE</span>
+    <div class="container c-msg__inner">
+      <div class="c-msg__rail js-fadein">
+        <p class="c-msg__label"><span class="c-msg__label-bar"></span>TOP MESSAGE</p>
       </div>
-      <!-- 中央：クォート -->
-      <div class="c-msg__quote">
-        <p>経営者として<br />生き様を変える。</p>
-        <p>その覚悟だけが、<br />未来を拓く。</p>
+      <div class="c-msg__main">
+        <h2 class="c-msg__catch js-fadein">挑戦を、<em>楽しめ</em>。</h2>
+        <p class="c-msg__catch-sub js-fadein">人生が終わるその日、最高だったと笑えるように。</p>
+        <div class="c-msg__paras js-fadein">
+          <p>ALL IN HOLDINGSは、挑戦する人が成長し、夢に向かって進み続けられる企業グループを目指しています。仲間と共に学び、成長し、一人では辿り着けない未来へ。</p>
+          <p>仕事も遊びも、すべて本気で楽しみながら、新たな価値と未来を創り続けます。</p>
+        </div>
+        <div class="c-msg__sign js-fadein">
+          <p class="c-msg__sign-title">代表取締役社長兼CEO</p>
+          <p class="c-msg__sign-name"><span class="c-msg__name-unit">広永</span> <span class="c-msg__name-unit">勝太</span></p>
+        </div>
       </div>
-      <!-- 右：名前 -->
-      <div class="c-msg__name-block">
-        <p class="c-msg__name-title">代表取締役社長兼CEO</p>
-        <h2 class="c-msg__name-kanji"><span class="c-msg__name-unit">広永</span> <span class="c-msg__name-unit">勝太</span></h2>
-      </div>
-    </div>
-
-    <!-- 代表メッセージ本文 -->
-    <div class="c-msg__body js-fadein">
-      <p class="c-msg__body-text">
-        「経営者になりたい」ではなく、「経営者として世界を変える」。<br />その覚悟を持つ人間だけが、ALL IN HOLDINGSの門をくぐる資格があります。
-      </p>
-      <p class="c-msg__body-text">
-        私たちは実際の経営現場で意思決定を重ね、事業を動かし、結果を出す。<br />そのプロセスの中でしか得られない「本物の経営力」を、次世代のリーダーたちに伝えていきます。
-      </p>
-      <p class="c-msg__body-text">
-        仕事も遊びも全てに本気で向き合い、<br />人生が「あっという間だった」と仲間と笑える未来を、共に創りましょう。
-      </p>
     </div>
   </section>
 
@@ -126,7 +107,7 @@
           </div>
           <div class="c-info__row">
             <dt>役員</dt>
-            <dd>代表取締役社長兼CEO　<span class="c-info__name-unit">広永</span> <span class="c-info__name-unit">勝太</span></dd>
+            <dd>代表取締役　<span class="c-info__name-unit">広永</span> <span class="c-info__name-unit">勝太</span></dd>
           </div>
           <div class="c-info__row">
             <dt>所在地</dt>
@@ -134,7 +115,7 @@
           </div>
           <div class="c-info__row">
             <dt>資本金</dt>
-            <dd>500万円</dd>
+            <dd>500万円（グループ資本金：1900万円）</dd>
           </div>
           <div class="c-info__row">
             <dt>設立日</dt>
@@ -162,6 +143,158 @@
     </div>
   </section>
 
+  <!-- ===== GROUP COMPANIES ===== -->
+  <section class="g-companies section section--gray" id="group">
+    <div class="container">
+      <div class="c-sec-head js-fadein">
+        <h2 class="c-sec-head__en">Group Companies</h2>
+        <p class="c-sec-head__ja">グループ会社一覧</p>
+      </div>
+
+      <div class="g-grid">
+        <article class="g-card js-fadein">
+          <div class="g-card__head">
+            <span class="g-card__num">01</span>
+            <div class="g-card__heading">
+              <h3 class="g-card__name">ALL IN HOLDINGS株式会社</h3>
+              <p class="g-card__en">ALL IN HOLDINGS Co., Ltd.</p>
+            </div>
+          </div>
+          <dl class="g-card__dl">
+            <div class="g-card__row"><dt>設立</dt><dd>2026年3月</dd></div>
+            <div class="g-card__row"><dt>代表者</dt><dd>代表取締役　広永 勝太</dd></div>
+            <div class="g-card__row"><dt>事業内容</dt><dd>資本政策の立案・実行 ／ 経営者育成 ／ ガバナンス設計 ／ 組織設計</dd></div>
+            <div class="g-card__row"><dt>資本金</dt><dd>500万円</dd></div>
+          </dl>
+          <p class="g-card__desc">資本・経営・知見を統合し、グループ全体の成長を実現するホールディングス。</p>
+        </article>
+
+        <article class="g-card js-fadein">
+          <div class="g-card__head">
+            <span class="g-card__num">02</span>
+            <div class="g-card__heading">
+              <h3 class="g-card__name">株式会社ホークセキュリティ</h3>
+              <p class="g-card__en">Hawk Security Co., Ltd.</p>
+            </div>
+          </div>
+          <dl class="g-card__dl">
+            <div class="g-card__row"><dt>設立</dt><dd>2023年9月</dd></div>
+            <div class="g-card__row"><dt>代表者</dt><dd>代表取締役　尾田 悠介</dd></div>
+            <div class="g-card__row"><dt>事業内容</dt><dd>SES ／ システム開発</dd></div>
+            <div class="g-card__row"><dt>資本金</dt><dd>900万円</dd></div>
+          </dl>
+          <p class="g-card__desc">システム開発とIT人材支援を通じて、企業のDXと成長を支援する。</p>
+        </article>
+
+        <article class="g-card js-fadein">
+          <div class="g-card__head">
+            <span class="g-card__num">03</span>
+            <div class="g-card__heading">
+              <h3 class="g-card__name">株式会社D PLATFORM</h3>
+              <p class="g-card__en">D PLATFORM Co., Ltd.</p>
+            </div>
+          </div>
+          <dl class="g-card__dl">
+            <div class="g-card__row"><dt>設立</dt><dd>2026年3月</dd></div>
+            <div class="g-card__row"><dt>代表者</dt><dd>代表取締役　萱谷 竜也</dd></div>
+            <div class="g-card__row"><dt>事業内容</dt><dd>人材紹介（有料職業紹介） ／ コミュニティ ／ 営業スクール ／ 起業スクール</dd></div>
+            <div class="g-card__row"><dt>資本金</dt><dd>400万円</dd></div>
+          </dl>
+          <p class="g-card__desc">営業支援・人材紹介・教育事業を通じて、次世代のリーダー育成を推進する。</p>
+        </article>
+
+        <article class="g-card js-fadein">
+          <div class="g-card__head">
+            <span class="g-card__num">04</span>
+            <div class="g-card__heading">
+              <h3 class="g-card__name">株式会社TAIGA<span class="g-card__tag">Tentative</span></h3>
+              <p class="g-card__en">Taiga Co., Ltd.</p>
+            </div>
+          </div>
+          <dl class="g-card__dl">
+            <div class="g-card__row"><dt>設立</dt><dd>2026年7月</dd></div>
+            <div class="g-card__row"><dt>代表者</dt><dd>代表取締役　TBD</dd></div>
+            <div class="g-card__row"><dt>事業内容</dt><dd>美容室 ／ Bar</dd></div>
+            <div class="g-card__row"><dt>資本金</dt><dd>500万円（増資予定）</dd></div>
+          </dl>
+          <p class="g-card__desc">都市型ヘアサロンの店舗展開と、経営者・投資家が集うハイエンドバーを同時展開。</p>
+        </article>
+
+        <article class="g-card g-card--gold js-fadein">
+          <div class="g-card__head">
+            <span class="g-card__num">05</span>
+            <div class="g-card__heading">
+              <h3 class="g-card__name">株式会社ALL IN CAPITAL<span class="g-card__tag">Tentative</span></h3>
+              <p class="g-card__en">ALL IN CAPITAL Co., Ltd.</p>
+            </div>
+          </div>
+          <dl class="g-card__dl">
+            <div class="g-card__row"><dt>設立</dt><dd>2026年12月</dd></div>
+            <div class="g-card__row"><dt>代表者</dt><dd>代表取締役　広永 勝太</dd></div>
+            <div class="g-card__row"><dt>事業内容</dt><dd>有価証券の取得・保有・運用</dd></div>
+            <div class="g-card__row"><dt>資本金</dt><dd>500万円</dd></div>
+          </dl>
+          <p class="g-card__desc">全資本を最適配分し、事業価値の最大化を実現する投資・経営プラットフォーム企業。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__head js-fadein">
+        <h2 class="section__title">CONTACT</h2>
+        <p class="section__desc">事業支援・M&Aなど、<br />まずはお気軽にご相談ください</p>
+      </div>
+      <form class="contact__form js-fadein" id="contactForm">
+        <div class="form__row">
+          <div class="form__group">
+            <label class="form__label" for="name">お名前 <span class="form__required">必須</span></label>
+            <input class="form__input" type="text" id="name" name="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="company">会社名</label>
+            <input class="form__input" type="text" id="company" name="company" placeholder="株式会社〇〇" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__group">
+            <label class="form__label" for="email">メールアドレス <span class="form__required">必須</span></label>
+            <input class="form__input" type="email" id="email" name="email" placeholder="example@hawk-hd.co.jp" required />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="tel">電話番号</label>
+            <input class="form__input" type="tel" id="tel" name="tel" placeholder="03-0000-0000" />
+          </div>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="category">お問い合わせ種別 <span class="form__required">必須</span></label>
+          <select class="form__select" id="category" name="category" required>
+            <option value="">選択してください</option>
+            <option value="consulting">経営コンサルティング</option>
+            <option value="ma">M&A・事業承継</option>
+            <option value="invest">投資・ファイナンス</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="message">お問い合わせ内容 <span class="form__required">必須</span></label>
+          <textarea class="form__textarea" id="message" name="message" rows="6" placeholder="ご相談内容をご記入ください" required></textarea>
+        </div>
+        <div class="form__agree">
+          <label class="form__agree-label">
+            <input type="checkbox" class="form__agree-check" required />
+            <span class="form__agree-text"><a href="privacy.html" class="form__agree-link">プライバシーポリシー</a>に同意する</span>
+          </label>
+        </div>
+        <div class="form__submit">
+          <button type="submit" class="btn btn--metallic btn--large">送信する</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer__accent-line"></div>
@@ -169,16 +302,16 @@
       <div class="footer__top">
         <div class="footer__brand">
           <p class="footer__logo"><span class="footer__logo-allin">ALL IN</span> <span class="footer__logo-holdings">HOLDINGS</span></p>
-          <p class="footer__tagline">仕事・遊び全て本気で楽しみ<br />人生あっという間だったと<br />仲間と笑える未来に向かう</p>
+          <p class="footer__tagline">挑戦する人に、夢を描ける舞台を創る</p>
         </div>
         <nav class="footer__nav">
           <ul class="footer__nav-list">
             <li><a href="index.html">HOME</a></li>
             <li><a href="index.html#service">SERVICE</a></li>
-            <li><a href="value.html">VALUES</a></li>
+            <li><a href="achievement.html">ACHIEVEMENT</a></li>
             <li><a href="recruit.html">CAREERS</a></li>
-            <li><a href="company.html">COMPANY</a></li>
-            <li><a href="index.html#contact">CONTACT</a></li>
+            <li><a href="philosophy.html">PHILOSOPHY</a></li>
+            <li><a href="company.html">COMPANY</a></li>            <li><a href="index.html#contact">CONTACT</a></li>
           </ul>
         </nav>
         <p class="footer__info"><span class="footer__info-name">ALL IN HOLDINGS株式会社</span><br /><span class="footer__info-addr">東京都渋谷区渋谷3-25-7 Bre.S SHIBUYA 202</span></p>

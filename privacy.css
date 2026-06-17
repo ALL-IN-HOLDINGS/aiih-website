@@ -3,45 +3,41 @@
    プライバシーポリシーページ専用スタイル
    =========================== */
 
-/* ===== ヘッダー (常に白) ===== */
+/* ===== ヘッダー ===== */
 .header.is-scrolled {
-  background: var(--white);
-  box-shadow: 0 2px 20px rgba(59,77,98,0.08);
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 2px 20px rgba(40,46,54,0.10);
 }
 
 
 /* ===== HERO ===== */
 .pp-hero {
   position: relative;
-  min-height: 40vh;
+  min-height: 78vh;
   display: flex;
-  align-items: center;
-  background: #ffffff;
+  align-items: flex-start;
+  background: linear-gradient(150deg, #EEF1F4 0%, #E2E5E9 60%, #D0D5DB 100%);
   overflow: hidden;
 }
 .pp-hero__bg { position: absolute; inset: 0; }
 .pp-hero__bg-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(59,77,98,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59,77,98,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(43,46,51,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,46,51,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 .pp-hero__inner {
   position: relative;
   z-index: 2;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 120px 24px 60px;
-}
-.pp-hero__accent {
-  width: 32px;
-  height: 1px;
-  background: var(--accent);
-  margin-bottom: 20px;
-  opacity: 0.7;
+  padding: 170px 24px 120px;
 }
 .pp-hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
   font-family: var(--font-en);
   font-size: 0.8rem;
   font-weight: 400;
@@ -50,13 +46,19 @@
   color: var(--accent);
   margin-bottom: 24px;
 }
+.pp-hero__label-bar {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, #B8BEC6, #C8313A);
+}
 .pp-hero__title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
   font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: 0.08em;
-  background: linear-gradient(to bottom, #0D0D0D 0%, #6B4F1A 55%, #C9A235 100%);
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, #3C4046 0%, #5C636B 50%, #2B2E33 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,19 +73,19 @@
 }
 
 .pp-body__intro {
-  font-size: 0.92rem;
+  font-size: 1.02rem;
   color: var(--text-sub);
   line-height: 2.1;
   letter-spacing: 0.02em;
   padding-bottom: 48px;
-  border-bottom: 1px solid rgba(59,77,98,0.08);
+  border-bottom: 1px solid rgba(43,46,51,0.08);
 }
 
 
 /* ===== ARTICLE ===== */
 .pp-article {
   padding: 40px 0;
-  border-bottom: 1px solid rgba(59,77,98,0.08);
+  border-bottom: 1px solid rgba(43,46,51,0.08);
 }
 .pp-article:last-child {
   border-bottom: none;
@@ -91,7 +93,7 @@
 
 .pp-article__title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--text);
@@ -110,7 +112,7 @@
 }
 
 .pp-article__text {
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   color: var(--text-sub);
   line-height: 2;
   letter-spacing: 0.02em;
@@ -129,7 +131,7 @@
 .pp-article__list > li {
   position: relative;
   padding-left: 32px;
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   color: var(--text-sub);
   line-height: 2;
   letter-spacing: 0.02em;
@@ -142,7 +144,7 @@
   left: 0;
   font-weight: 600;
   color: var(--accent);
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-family: var(--font-en);
 }
 .pp-article__list > li:last-child {
@@ -157,7 +159,7 @@
 .pp-article__sublist > li {
   position: relative;
   padding-left: 16px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-sub);
   line-height: 2;
   margin-bottom: 4px;
@@ -186,29 +188,29 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .pp-hero { min-height: auto; }
-  .pp-hero__inner { padding: 100px 20px 48px; }
+  .pp-hero { min-height: 70vh; }
+  .pp-hero__inner { padding: 130px 20px 80px; }
   .pp-hero__label { font-size: 0.65rem; letter-spacing: 0.4em; margin-bottom: 16px; }
-  .pp-hero__title { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  .pp-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
 
   .pp-body { padding-bottom: 20px; }
-  .pp-body__intro { font-size: 0.85rem; padding-bottom: 32px; }
+  .pp-body__intro { font-size: 0.95rem; padding-bottom: 32px; }
 
   .pp-article { padding: 28px 0; }
-  .pp-article__title { font-size: 1rem; }
-  .pp-article__text { font-size: 0.84rem; }
-  .pp-article__list > li { font-size: 0.84rem; padding-left: 28px; }
-  .pp-article__sublist > li { font-size: 0.82rem; }
+  .pp-article__title { font-size: 1.08rem; }
+  .pp-article__text { font-size: 0.94rem; }
+  .pp-article__list > li { font-size: 0.94rem; padding-left: 28px; }
+  .pp-article__sublist > li { font-size: 0.9rem; }
   .pp-article__contact { padding: 20px 20px; }
 }
 
 @media (max-width: 480px) {
-  .pp-hero__inner { padding: 88px 16px 40px; }
-  .pp-hero__title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+  .pp-hero__inner { padding: 110px 16px 64px; }
+  .pp-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
 
   .pp-article { padding: 24px 0; }
-  .pp-article__title { font-size: 0.95rem; padding-left: 14px; }
-  .pp-article__text { font-size: 0.82rem; }
-  .pp-article__list > li { font-size: 0.82rem; padding-left: 24px; }
-  .pp-article__sublist > li { font-size: 0.8rem; }
+  .pp-article__title { font-size: 1.02rem; padding-left: 14px; }
+  .pp-article__text { font-size: 0.9rem; }
+  .pp-article__list > li { font-size: 0.9rem; padding-left: 24px; }
+  .pp-article__sublist > li { font-size: 0.88rem; }
 }

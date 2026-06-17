@@ -1,0 +1,13 @@
+# ===== クリーンURL（.html を非表示） =====
+RewriteEngine On
+
+# 1) ".html" 付きでアクセスされたら拡張子なしURLへ 301 リダイレクト
+#    例: /recruit.html -> /recruit
+RewriteCond %{THE_REQUEST} \s/+([^.\s?]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2) 拡張子なしのリクエストを内部的に .html へマッピング
+#    例: /recruit  (ファイルは recruit.html を返す)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]

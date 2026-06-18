@@ -1996,8 +1996,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero__title-line2 { font-size: 0.94em; margin: 0 0 12px 0; }
   .hero__title-line3 { font-size: 0.94em; }
   .hero__en { font-size: 0.82rem; }
-  .hero__btns { flex-direction: column; align-items: center; gap: 14px; }
-  .hero__btns .btn { width: auto; padding: 12px 30px; }
+  .hero__btns { flex-direction: column; align-items: stretch; gap: 14px; width: fit-content; margin-left: auto; margin-right: auto; }
+  .hero__btns .btn { width: 100%; padding: 12px 30px; border-width: 1.8px; }
   .hero__inner { padding-bottom: 168px; }
 
   .section__title { font-size: clamp(1.3rem, 6vw, 1.8rem); }

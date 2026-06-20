@@ -391,6 +391,8 @@
   .ph-value__body,
   .ph-value--right .ph-value__body { order: 0; text-align: left; }
   .ph-value__num { font-size: clamp(2.6rem, 12vw, 3.8rem); }
+  /* スマホ: 数字を貫く横線を長すぎないよう数字幅程度の短いラインに */
+  .ph-value__num-bar { left: 50%; right: auto; width: 76px; transform: translate(-50%, -50%); }
   .ph-value--right .ph-value__title::after { left: 0; right: auto; }
   .ph-value--left.js-fadein,
   .ph-value--right.js-fadein { transform: translateY(40px); }

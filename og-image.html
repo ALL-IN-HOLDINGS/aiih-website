@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <!--
+    OGP画像 生成用ページ（1200×630）
+    使い方：
+      1) このページをChromeで開く（例：http://127.0.0.1:8000/og-image.html）
+      2) F12 → デバイスツールバー → 解像度 1200 × 630 に設定
+      3) 「…」メニュー → Capture screenshot（フルサイズ）で書き出し
+         （または任意のスクショ/HTML→画像ツールで 1200×630 を保存）
+      4) ファイル名を og-image.png として保存
+      5) エックスサーバーのルート（index.html と同じ場所）にアップロード
+    ※ 各ページの og:image は https://all-in-holdings.co.jp/og-image.png を指すよう設定済み
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    .og {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, #20232A 0%, #2B2E33 45%, #3C4046 75%, #20232A 100%);
+      overflow: hidden;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    /* 背景のグリッド */
+    .og__grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000 35%, transparent 85%);
+      mask-image: radial-gradient(ellipse at 50% 45%, #000 35%, transparent 85%);
+    }
+    /* グロー */
+    .og__glow {
+      position: absolute;
+      width: 760px; height: 760px;
+      top: -200px; right: -180px;
+      background: radial-gradient(circle, rgba(154,160,167,0.16), transparent 65%);
+      pointer-events: none;
+    }
+    .og__inner { position: relative; z-index: 2; text-align: center; padding: 0 80px; }
+    .og__wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 92px;
+      letter-spacing: 0.14em;
+      line-height: 1;
+      background: linear-gradient(135deg, #FFFFFF 0%, #C8CDD2 45%, #9AA0A7 70%, #E8EEF2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .og__wordmark .holdings { font-weight: 300; }
+    .og__rule {
+      width: 120px; height: 3px; margin: 40px auto 38px;
+      background: linear-gradient(90deg, transparent, #C8313A 40%, #868D95 100%);
+    }
+    .og__tagline {
+      font-family: 'Shippori Mincho B1', serif;
+      font-weight: 600;
+      font-size: 44px;
+      letter-spacing: 0.12em;
+      color: #EDEFF2;
+    }
+    .og__en {
+      margin-top: 26px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 19px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(220,224,228,0.55);
+    }
+    /* コーポレートカラーの縁取り */
+    .og__edge { position: absolute; left: 0; right: 0; height: 6px; z-index: 3;
+      background: linear-gradient(90deg, #C8313A 0%, #868D95 60%, #C8CDD2 100%); }
+    .og__edge--top { top: 0; }
+    .og__edge--bottom { bottom: 0; opacity: 0.5; }
+  </style>
+</head>
+<body>
+  <div class="og">
+    <span class="og__edge og__edge--top"></span>
+    <div class="og__grid"></div>
+    <div class="og__glow"></div>
+    <div class="og__inner">
+      <div class="og__wordmark">ALL IN <span class="holdings">HOLDINGS</span></div>
+      <div class="og__rule"></div>
+      <div class="og__tagline">挑戦する人に、最高の舞台を。</div>
+      <div class="og__en">All In Holdings Inc.</div>
+    </div>
+    <span class="og__edge og__edge--bottom"></span>
+  </div>
+</body>
+</html>

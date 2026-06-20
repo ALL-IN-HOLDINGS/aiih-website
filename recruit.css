@@ -280,15 +280,15 @@
 .r-voice__avatar-img--3 { background: linear-gradient(135deg, var(--accent-light), #6B7178); }
 
 .r-voice__quote {
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   color: var(--text-sub);
-  line-height: 1.85;
+  line-height: 1.9;
   flex: 1;
   position: relative;
   z-index: 1;
 }
 .r-voice__profile { border-top: 1px solid var(--line); padding-top: 16px; }
-.r-voice__name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.r-voice__name { font-weight: 700; font-size: 1.0rem; margin-bottom: 4px; }
 .r-voice__role { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
 
 
@@ -340,8 +340,8 @@
   color: var(--white);
 }
 .r-flow__content { padding: 16px 0; }
-.r-flow__title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-.r-flow__body { font-size: 0.95rem; color: var(--text-sub); line-height: 1.85; }
+.r-flow__title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+.r-flow__body { font-size: 1.0rem; color: var(--text-sub); line-height: 1.9; }
 
 
 /* ===== FILE INPUT ===== */
@@ -393,6 +393,10 @@
   .r-hero__inner { padding: 130px 20px 80px; }
   .r-hero__label { font-size: 0.65rem; letter-spacing: 0.4em; margin-bottom: 20px; }
   .r-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
+  .r-hero__desc { font-size: 0.9rem; line-height: 1.95; }
+
+  /* 経営者ポジションの説明文：文節改行＋行間を詰めて整える */
+  .r-pos__desc { line-height: 1.95; }
 
   .r-why__grid { grid-template-columns: 1fr; }
 
@@ -407,13 +411,16 @@
 @media (max-width: 480px) {
   .r-hero__inner { padding: 110px 16px 64px; }
   .r-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
-  .r-hero__desc { font-size: 0.9rem; margin-bottom: 32px; }
+  .r-hero__desc { font-size: 0.88rem; margin-bottom: 32px; }
 
   .r-why__card { padding: 28px 20px; }
 
 
-  .r-pos__detail { grid-template-columns: 56px 1px 1fr; gap: 16px; padding: 16px 0; }
-  .r-pos__desc { font-size: 0.88rem; margin-bottom: 40px; }
+  .r-pos__detail { grid-template-columns: 56px 1px 1fr; gap: 16px; padding: 16px 0; font-size: 1rem; }
+  /* 給与テーブルの文字を約90%に縮小 */
+  .r-pos__detail-label { font-size: 0.85rem; }
+  .r-pos__detail-value { font-size: 1rem; }
+  .r-pos__desc { font-size: 0.96rem; margin-bottom: 40px; }
 
   .r-voice__card { padding: 28px 20px; }
 
@@ -428,7 +435,7 @@
   .r-hero__title { font-size: clamp(2.1rem, 5vw, 3.8rem); }
   .r-hero__label { font-size: 0.6rem; letter-spacing: 0.3em; }
 
-  .r-pos__detail { grid-template-columns: 62px 1px 1fr; gap: 14px; font-size: 1rem; }
-  .r-pos__detail-label { font-size: 0.82rem; }
-  .r-pos__detail-value { font-size: 1rem; }
+  .r-pos__detail { grid-template-columns: 62px 1px 1fr; gap: 14px; font-size: 0.9rem; }
+  .r-pos__detail-label { font-size: 0.74rem; }
+  .r-pos__detail-value { font-size: 0.9rem; }
 }

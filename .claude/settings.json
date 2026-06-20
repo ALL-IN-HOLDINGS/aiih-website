@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "PowerShell(\"stopped\")",
+      "Bash(curl -s -D - -o /dev/null http://127.0.0.1:8000/style.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8000/style.css)",
+      "Bash(curl -s -o /dev/null -w \"achievement %{http_code} / group.css %{http_code}\\\\n\" http://127.0.0.1:8000/achievement)",
+      "Bash(curl -s -o /dev/null -w \"script.js %{http_code}\\\\n\" http://127.0.0.1:8000/script.js)",
+      "Bash(curl -s -o /dev/null -w \"recruit %{http_code}\\\\n\" http://127.0.0.1:8000/recruit)",
+      "Bash(curl -s -o /dev/null -w \"value.css %{http_code}\\\\n\" http://127.0.0.1:8000/value.css)",
+      "Bash(curl -s -o /dev/null -w \"recruit.css %{http_code}\\\\n\" http://127.0.0.1:8000/recruit.css)",
+      "Bash(curl -s -o /dev/null -w \"achievement %{http_code} / group.css %{http_code} / script.js %{http_code}\\\\n\" http://127.0.0.1:8000/achievement http://127.0.0.1:8000/group.css http://127.0.0.1:8000/script.js)",
+      "Bash(curl -s -o /dev/null -w \"ok\\\\n\" http://127.0.0.1:8000/group.css)"
+    ]
+  }
+}

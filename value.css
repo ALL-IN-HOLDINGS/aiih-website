@@ -295,8 +295,8 @@
 }
 .v-transform__list li {
   font-family: var(--font-display);
-  font-size: 0.92rem;
-  line-height: 1.8;
+  font-size: 1.02rem;
+  line-height: 1.9;
   padding-left: 20px;
   position: relative;
 }
@@ -316,7 +316,7 @@
   font-family: var(--font-display);
   color: var(--text);
   font-weight: 600;
-  font-size: 1.12rem;
+  font-size: 1.12rem; /* afterは強調のまま少し大きめ */
   line-height: 1.85;
   letter-spacing: 0.04em;
 }
@@ -435,16 +435,16 @@
 }
 .v-journey__step-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.04em;
   margin-bottom: 16px;
 }
 .v-journey__step-body {
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   color: var(--text-sub);
-  line-height: 2.1;
+  line-height: 2.0;
 }
 
 
@@ -614,7 +614,7 @@
   align-items: center;
   gap: 9px;
   font-family: var(--font-en);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.25em;
   color: rgba(43,46,51,0.6);
@@ -630,7 +630,7 @@
 .v-future__card-title {
   position: relative;
   z-index: 2;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   margin-bottom: 12px;
@@ -643,7 +643,7 @@
 .v-future__card-catch {
   position: relative;
   z-index: 2;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: rgba(43,46,51,0.7);
   letter-spacing: 0.04em;
 }
@@ -658,7 +658,7 @@
   border-radius: 0;
 }
 .v-future__card-body {
-  font-size: 0.96rem;
+  font-size: 1.05rem;
   color: var(--text-sub);
   line-height: 2;
   margin-bottom: 24px;
@@ -669,7 +669,7 @@
   flex-shrink: 0;
   height: 116px;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1.9;
@@ -1030,6 +1030,38 @@
 
 
 /* ===========================
+   スマホ用タブ（Transformation / Your Future）
+   =========================== */
+.v-tabs {
+  display: none; /* スマホでJSが flex に */
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.v-tab {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 6px;
+  border: 1px solid rgba(43, 46, 51, 0.2);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: rgba(43, 46, 51, 0.5);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.v-transform__tabs .v-tab.is-active { background: #2B2E33; color: #fff; border-color: #2B2E33; }
+.v-future__tabs .v-tab.is-active { background: #C8313A; color: #fff; border-color: #C8313A; }
+.is-tab-hidden { display: none !important; }
+.is-tab-anim { animation: v-tab-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes v-tab-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
    RESPONSIVE
    =========================== */
 
@@ -1068,38 +1100,35 @@
     grid-template-columns: 1fr;
     gap: 0;
   }
-  .v-transform__col { padding: 36px 28px; }
-  .v-transform__col--before { border-radius: 8px 8px 0 0; }
-  .v-transform__col--after { border-radius: 0 0 8px 8px; }
-  .v-transform__arrow {
-    flex-direction: row;
-    gap: 12px;
-    padding: 20px 0;
-  }
-  .v-transform__arrow-line { width: 40px; height: 1px; }
-  .v-transform__arrow-line:last-child { background: linear-gradient(to right, rgba(43,46,51,0.3), transparent); }
-  .v-transform__arrow-line:first-child { background: linear-gradient(to right, transparent, rgba(43,46,51,0.3)); }
-  .v-transform__arrow-text {
-    writing-mode: horizontal-tb;
-    font-size: 0.6rem;
-  }
+  .v-transform__col { padding: 30px 24px; border-radius: 10px; }
+  .v-transform__col--before,
+  .v-transform__col--after { border-radius: 10px; }
+  /* タブ化：矢印は非表示・左右スライドインも無効化（タブのフェードで動かす） */
+  .v-transform__arrow { display: none; }
+  .v-transform__col.js-fadein,
+  .v-transform__col--before.js-fadein,
+  .v-transform__col--after.js-fadein { opacity: 1; transform: none; transition: none; }
+  .v-transform__col-label { margin-bottom: 22px; }
+  .v-transform__list li { font-size: 0.92rem; }
+  .v-transform__col--after .v-transform__list li { font-size: 1rem; }
 
   /* Journey */
   .v-journey__step { gap: 20px; padding-bottom: 40px; }
-  .v-journey__step-title { font-size: 1.1rem; }
-  .v-journey__step-body { font-size: 0.95rem; }
+  .v-journey__step-title { font-size: 1.15rem; }
+  .v-journey__step-body { font-size: 0.9rem; line-height: 1.95; }
 
-  /* Future */
+  /* Future（タブ化：1枚ずつ表示） */
   .v-future__grid { grid-template-columns: 1fr; }
-  .v-future__card-top { padding: 32px 24px 24px; }
+  .v-future__card-top { padding: 28px 24px 22px; }
   .v-future__card-bottom { padding: 24px; }
-  /* 分岐コネクタは中央の幹のみに（1列レイアウト） */
-  .v-path__branch { height: 52px; }
-  .v-path__branch::after { display: none; }
-  .v-path__branch-drop:nth-child(2),
-  .v-path__branch-drop:nth-child(4) { display: none; }
-  .v-path__branch-drop:nth-child(3) { left: 50%; top: 24px; height: 28px; }
-  .v-path__future-head { margin: 4px 0 32px; }
+  /* 崩れていた分岐装飾はタブ化に伴い非表示 */
+  .v-path__branch { display: none; }
+  .v-path__future-head { margin: 0 0 28px; }
+  /* 文字サイズ統一 */
+  .v-future__card-title { font-size: 1.2rem; }
+  .v-future__card-body { font-size: 0.9rem; line-height: 1.95; }
+  .v-future__card-life { height: auto; font-size: 0.88rem; }
+  .v-future__card.js-fadein { opacity: 1; transform: none; }
 
   /* ALL IN */
   .v-allin { padding: 100px 0; }
@@ -1123,8 +1152,10 @@
   .v-skill--right .v-skill__body { order: 0; text-align: left; }
   .v-skill__num { font-size: clamp(3.6rem, 16vw, 5.5rem); }
   .v-skill--right .v-skill__title::after { left: 0; right: auto; }
+  /* スマホ: タグを内容幅のpill（1行）にして自然に折り返す */
   .v-skill__tags,
-  .v-skill--right .v-skill__tags { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); justify-content: start; }
+  .v-skill--right .v-skill__tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
+  .v-skill__tags li { white-space: nowrap; text-align: left; font-size: 0.78rem; padding: 8px 13px; }
   /* モバイルは縦方向のフェードに統一 */
   .v-skill--left.js-fadein,
   .v-skill--right.js-fadein { transform: translateY(40px); }

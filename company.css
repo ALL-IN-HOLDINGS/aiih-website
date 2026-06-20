@@ -184,23 +184,24 @@
   margin-left: auto; /* かたまりを右端へ寄せる（中身は左揃え） */
 }
 .c-msg__sign-title {
-  font-family: var(--font-ja);
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-display);
+  font-size: 1.44rem;
+  font-weight: 500;
+  letter-spacing: 0.145em;
   color: var(--text);
   margin-bottom: 12px;
 }
 .c-msg__sign-name {
-  font-family: 'Yuji Mai', serif;
-  font-size: clamp(2.53rem, 3.9vw, 3.57rem);
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-weight: 600;
   line-height: 1.3;
   color: var(--text);
+  letter-spacing: 0.08em;
 }
 .c-msg__name-unit {
   display: inline-block;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.4em;
 }
 
 
@@ -381,16 +382,17 @@
 }
 .c-info__row dt,
 .c-info__row dd {
-  padding: 28px 0;
-  font-size: 1.12rem;
-  line-height: 1.95;
+  padding: 26px 0;
+  font-size: 1.3rem;
+  line-height: 1.9;
 }
 .c-info__row dt {
-  font-weight: 600;
-  color: var(--text);
-  font-size: 1.05rem;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.04rem;
+  letter-spacing: 0.12em;
   padding-right: 24px;
+  align-self: center;
 }
 .c-info__row dd {
   color: var(--text-sub);
@@ -442,30 +444,195 @@
   .c-msg__catch-sub { font-size: 1.05rem; margin-bottom: 36px; }
   .c-msg__paras p { font-size: 0.95rem; line-height: 2.1; }
   .c-msg__sign { text-align: left; margin-top: 40px; }
-  .c-msg__sign-name { font-size: 2.42rem; }
+  /* 肩書：スマホは現状の115%に */
+  .c-msg__sign-title { font-size: 1.1rem; letter-spacing: 0.07em; }
+  .c-msg__sign-name { font-size: 2.18rem; }
 
   /* セクション見出し */
   .c-sec-head { margin-bottom: 48px; }
   .c-sec-head__en { font-size: clamp(2.2rem, 8vw, 3.2rem); }
   .c-sec-head__ja { font-size: 0.85rem; }
 
-  /* Long-term goals */
-  .c-goals__row { grid-template-columns: 1fr; gap: 20px; align-items: stretch; }
-  .c-goals__card { padding: 32px 26px 30px 30px; }
+  /* Long-term goals: 年号タップで開閉するアコーディオン */
+  .c-goals__row { grid-template-columns: 1fr; gap: 14px; align-items: stretch; }
   .c-goals__card:nth-child(1),
   .c-goals__card:nth-child(2),
   .c-goals__card:nth-child(3) { min-height: 0; }
+  /* ===== 年号タブ切替：明るく装飾的なエディトリアル（枠なし） ===== */
+  .c-goals__row { display: block; }
+  /* 年号タブ：均等幅＋動く下線 */
+  .c-goals__tabs {
+    display: none; /* JSがflexに */
+    gap: 0;
+    margin-bottom: 22px;
+    border-bottom: 1px solid rgba(43, 46, 51, 0.1);
+  }
+  .c-goals__tab {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 4px 4px 14px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    font-family: var(--font-en);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: rgba(43, 46, 51, 0.28);
+    transition: color 0.2s ease;
+  }
+  /* 選択中：文字色＋赤い下線 */
+  .c-goals__tab::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #C8313A, #868D95);
+    transition: width 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .c-goals__tab.is-active { color: var(--accent-dark); }
+  .c-goals__tab.is-active::after { width: 64%; }
+  /* コンテンツ：枠なし・明るい・装飾あり */
+  .c-goals__card {
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+    padding: 18px 6px 66px; /* 下に余白＝透かしを目標の下に置くため */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+  .c-goals__card.is-goal-hidden { display: none; }
+  /* PC用のカード上部 赤バー（::after）はスマホでは非表示（PCと混在させない） */
+  .c-goals__card::after { display: none; }
+  /* 赤いぼかし（グロー）は廃止（2030/2035も無し） */
+  .c-goals__card::before { display: none; }
+  /* 2030/2035の年号ウォーターマークは非表示（2040のスタンプのみ残す） */
+  .c-goals__year {
+    display: none;
+    position: absolute;
+    top: auto;
+    bottom: 4px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-en);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: rgba(43, 46, 51, 0.06);
+    -webkit-text-fill-color: rgba(43, 46, 51, 0.06);
+    background: none;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* 2040は差別化：右下に「ALL IN HOLDINGS ＋ 2040」のメタリックゴールド・スタンプ */
+  .c-goals__card--gold .c-goals__year {
+    display: block;
+    top: auto;
+    bottom: -8px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    font-size: 4.6rem;
+    line-height: 1;
+    color: transparent;
+    background: linear-gradient(135deg, #F2E2A0 0%, #D9B24A 45%, #B8922A 70%, #8A6A1C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.5;
+  }
+  .c-goals__year::after { display: none; }
+  .c-goals__rule { display: none; }
+  /* ゴール：余白たっぷり＋立体的な小マーカー（明るい銀／2040は赤の差し色） */
+  .c-goals__list {
+    position: relative;
+    z-index: 1;
+    gap: 22px;
+    padding: 8px 0 0;
+  }
+  .c-goals__list li {
+    position: relative;
+    padding-left: 30px;
+    font-family: var(--font-display);
+    font-size: 1.14rem;
+    color: var(--text);
+    line-height: 1.65;
+    letter-spacing: 0.02em;
+  }
+  .c-goals__card:nth-child(2) .c-goals__list li:nth-child(2) { white-space: normal; }
+  .c-goals__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 11px;
+    height: 11px;
+    transform: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #FFFFFF 0%, #C8CDD2 45%, #9AA0A7 100%);
+    box-shadow: 0 0 0 4px rgba(154, 160, 167, 0.12), 0 2px 4px rgba(40, 46, 54, 0.18);
+  }
+  /* 2040は差別化：マーカー（金の丸）は無し・本文は2行に収まるサイズ */
+  .c-goals__card--gold .c-goals__list li {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.7;
+    padding-left: 0;
+  }
+  .c-goals__card--gold .c-goals__list li::before { display: none; }
+  /* 赤いぼかしを外し、「2040」の上に小さく「ALL IN HOLDINGS」 */
+  .c-goals__card--gold::before {
+    content: 'ALL IN HOLDINGS';
+    white-space: nowrap;
+    display: block;
+    top: auto;
+    bottom: 66px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-family: var(--font-en);
+    font-size: 1.04rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    background: linear-gradient(135deg, #F2E2A0 0%, #C9A23A 50%, #8A6A1C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .c-goals__card.is-goal-anim { animation: c-goal-fade 0.26s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes c-goal-fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-  /* Company info */
-  .c-info__row { grid-template-columns: 1fr; }
+  /* Company info（スマホ：違和感のない範囲で最大化＋少し右からインデント） */
+  .c-info__row { grid-template-columns: 1fr; padding-left: 20px; }
   .c-info__row dt {
     padding: 20px 0 4px;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     color: var(--accent);
   }
   .c-info__row dd {
     padding: 4px 0 20px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    line-height: 1.85;
   }
 }
 
@@ -476,7 +643,7 @@
   .c-msg__catch { font-size: clamp(1.4rem, 6.5vw, 1.9rem); }
   .c-msg__catch-sub { font-size: 0.98rem; }
   .c-msg__paras p { font-size: 0.88rem; }
-  .c-msg__sign-name { font-size: 2.13rem; }
+  .c-msg__sign-name { font-size: 1.92rem; }
 
   .c-sec-head__en { font-size: clamp(1.8rem, 8vw, 2.4rem); }
 }
@@ -488,5 +655,5 @@
 
   .c-msg { padding: 64px 0 60px; }
   .c-msg__catch { font-size: 1.35rem; }
-  .c-msg__sign-name { font-size: 1.86rem; }
+  .c-msg__sign-name { font-size: 1.67rem; }
 }

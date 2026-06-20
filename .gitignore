@@ -2,3 +2,6 @@
 
 # 確認用に共有された画像（リポジトリには含めない）
 S__*.jpg
+
+# Claude Code のローカル個人設定（このPC固有・共有しない）
+.claude/settings.local.json

@@ -260,3 +260,256 @@ if (clockYear) {
   tick();
   setInterval(tick, 1000);
 }
+
+
+// ===== 中長期目標: 年号タブ切替（スマホ） =====
+const goalsRow = document.querySelector('.c-goals__row');
+if (goalsRow) {
+  const gCards = [...goalsRow.querySelectorAll('.c-goals__card')];
+  const mqG = window.matchMedia('(max-width: 768px)');
+  if (gCards.length) {
+    const tabs = document.createElement('div');
+    tabs.className = 'c-goals__tabs';
+    const gBtns = gCards.map((card, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'c-goals__tab';
+      const y = card.querySelector('.c-goals__year');
+      b.textContent = y ? y.textContent.trim() : String(i + 1);
+      b.addEventListener('click', () => { gActive = i; gRender(); });
+      return b;
+    });
+    tabs.append(...gBtns);
+    goalsRow.before(tabs);
+
+    let gActive = 0;
+
+    // 各年パネルの高さを最も高いもの（=2030）に揃える
+    const lockGoals = () => {
+      gCards.forEach(c => { c.style.minHeight = ''; });
+      if (!mqG.matches) return;
+      let max = 0;
+      gCards.forEach(c => {
+        const hidden = c.classList.contains('is-goal-hidden');
+        if (hidden) c.classList.remove('is-goal-hidden');
+        if (c.offsetHeight > max) max = c.offsetHeight;
+        if (hidden) c.classList.add('is-goal-hidden');
+      });
+      gCards.forEach(c => { c.style.minHeight = max + 'px'; });
+    };
+
+    const gRender = () => {
+      if (mqG.matches) {
+        tabs.style.display = 'flex';
+        gCards.forEach((card, i) => {
+          const on = i === gActive;
+          card.classList.toggle('is-goal-hidden', !on);
+          gBtns[i].classList.toggle('is-active', on);
+          if (on) { card.classList.remove('is-goal-anim'); void card.offsetWidth; card.classList.add('is-goal-anim'); }
+        });
+      } else {
+        tabs.style.display = 'none';
+        gCards.forEach(card => { card.classList.remove('is-goal-hidden'); card.style.minHeight = ''; });
+      }
+    };
+    mqG.addEventListener('change', () => { lockGoals(); gRender(); });
+    lockGoals();
+    gRender();
+  }
+}
+
+
+// ===== New Next Venture: スマホでページ送り（3枚ずつ） =====
+const nvGrid = document.querySelector('.g-next__grid');
+if (nvGrid) {
+  const nvCards = [...nvGrid.querySelectorAll('.g-next__card')];
+  const PAGE_SIZE = 3;
+  const pageCount = Math.ceil(nvCards.length / PAGE_SIZE);
+  const mq = window.matchMedia('(max-width: 768px)');
+
+  // 番号を固定化（06始まり）。CSSカウンタは display:none でズ레るため data-num を使う
+  nvCards.forEach((card, i) => { card.dataset.num = String(6 + i).padStart(2, '0'); });
+
+  if (nvCards.length > PAGE_SIZE) {
+    // ナビ（戻る矢印 ＋ ドット ＋ 進む矢印）— スワイプ可能の合図
+    const dots = document.createElement('div');
+    dots.className = 'g-next__dots';
+
+    const arrowPrev = document.createElement('button');
+    arrowPrev.type = 'button';
+    arrowPrev.className = 'g-next__arrow g-next__arrow--prev';
+    arrowPrev.setAttribute('aria-label', '前へ（右スワイプ）');
+    arrowPrev.innerHTML = '<span></span>';
+    arrowPrev.addEventListener('click', () => goTo(page - 1, 'prev'));
+
+    const dotsInner = document.createElement('div');
+    dotsInner.className = 'g-next__dots-inner';
+    const dotEls = [];
+    for (let i = 0; i < pageCount; i++) {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'g-next__dot';
+      d.setAttribute('aria-label', `${i + 1}ページ目へ`);
+      d.addEventListener('click', () => goTo(i));
+      dotsInner.appendChild(d);
+      dotEls.push(d);
+    }
+
+    const arrowNext = document.createElement('button');
+    arrowNext.type = 'button';
+    arrowNext.className = 'g-next__arrow g-next__arrow--next';
+    arrowNext.setAttribute('aria-label', '次へ（左スワイプ）');
+    arrowNext.innerHTML = '<span></span>';
+    arrowNext.addEventListener('click', () => goTo(page + 1, 'next'));
+
+    dots.append(arrowPrev, dotsInner, arrowNext);
+    nvGrid.before(dots);
+
+    let page = 0;
+
+    const render = (dir) => {
+      if (mq.matches) {
+        const start = page * PAGE_SIZE;
+        const end = start + PAGE_SIZE;
+        nvCards.forEach((card, i) => {
+          const show = i >= start && i < end;
+          card.style.display = show ? '' : 'none';
+          if (show) card.classList.add('is-visible'); // フェードイン待ちで透明のままにならないよう
+        });
+        dots.style.display = 'flex';
+        dotEls.forEach((d, i) => d.classList.toggle('is-active', i === page));
+        arrowPrev.disabled = page === 0;
+        arrowNext.disabled = page === pageCount - 1;
+        if (dir) {
+          nvGrid.classList.remove('is-slide-l', 'is-slide-r');
+          void nvGrid.offsetWidth; // reflowで再生し直す
+          nvGrid.classList.add(dir === 'next' ? 'is-slide-l' : 'is-slide-r');
+        }
+      } else {
+        nvCards.forEach(card => { card.style.display = ''; });
+        dots.style.display = 'none';
+        nvGrid.style.minHeight = '';
+      }
+    };
+
+    const goTo = (p, dir) => {
+      p = Math.max(0, Math.min(pageCount - 1, p));
+      if (p === page) return;
+      dir = dir || (p > page ? 'next' : 'prev');
+      page = p;
+      render(dir);
+    };
+
+    // フリック（スワイプ）で左右にページ切替
+    let sx = 0, sy = 0, tracking = false;
+    nvGrid.addEventListener('touchstart', (e) => {
+      if (!mq.matches) return;
+      sx = e.touches[0].clientX;
+      sy = e.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+    nvGrid.addEventListener('touchend', (e) => {
+      if (!tracking || !mq.matches) return;
+      tracking = false;
+      const dx = e.changedTouches[0].clientX - sx;
+      const dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        if (dx < 0) goTo(page + 1, 'next');
+        else goTo(page - 1, 'prev');
+      }
+    }, { passive: true });
+
+    mq.addEventListener('change', () => { page = 0; render(); });
+    render();
+  }
+}
+
+
+// ===== Transformation / Your Future: スマホでタブ切替 =====
+(function () {
+  const mq = window.matchMedia('(max-width: 768px)');
+  const animate = (el) => {
+    el.classList.remove('is-tab-anim');
+    void el.offsetWidth; // reflowで再生し直す
+    el.classList.add('is-tab-anim');
+  };
+
+  // --- Transformation: BEFORE / AFTER ---
+  const tfGrid = document.querySelector('.v-transform__grid');
+  if (tfGrid) {
+    const before = tfGrid.querySelector('.v-transform__col--before');
+    const after = tfGrid.querySelector('.v-transform__col--after');
+    if (before && after) {
+      const tabs = document.createElement('div');
+      tabs.className = 'v-tabs v-transform__tabs';
+      const bBtn = document.createElement('button');
+      bBtn.type = 'button'; bBtn.className = 'v-tab'; bBtn.textContent = 'BEFORE';
+      const aBtn = document.createElement('button');
+      aBtn.type = 'button'; aBtn.className = 'v-tab'; aBtn.textContent = 'AFTER';
+      tabs.append(bBtn, aBtn);
+      tfGrid.before(tabs);
+
+      let active = 'before';
+      const render = () => {
+        if (mq.matches) {
+          tabs.style.display = 'flex';
+          const showAfter = active === 'after';
+          bBtn.classList.toggle('is-active', !showAfter);
+          aBtn.classList.toggle('is-active', showAfter);
+          before.classList.toggle('is-tab-hidden', showAfter);
+          after.classList.toggle('is-tab-hidden', !showAfter);
+          animate(showAfter ? after : before);
+        } else {
+          tabs.style.display = 'none';
+          before.classList.remove('is-tab-hidden');
+          after.classList.remove('is-tab-hidden');
+        }
+      };
+      bBtn.addEventListener('click', () => { active = 'before'; render(); });
+      aBtn.addEventListener('click', () => { active = 'after'; render(); });
+      mq.addEventListener('change', render);
+      render();
+    }
+  }
+
+  // --- Your Future: ROUTE 01 / 02 / 03 ---
+  const fuGrid = document.querySelector('.v-future__grid');
+  if (fuGrid) {
+    const cards = [...fuGrid.querySelectorAll('.v-future__card')];
+    if (cards.length) {
+      const tabs = document.createElement('div');
+      tabs.className = 'v-tabs v-future__tabs';
+      const btns = cards.map((card, i) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'v-tab';
+        const numEl = card.querySelector('.v-future__card-num');
+        b.textContent = numEl ? numEl.textContent.trim() : 'ROUTE 0' + (i + 1);
+        b.addEventListener('click', () => { active = i; render(); });
+        return b;
+      });
+      tabs.append(...btns);
+      fuGrid.before(tabs);
+
+      let active = 0;
+      const render = () => {
+        if (mq.matches) {
+          tabs.style.display = 'flex';
+          cards.forEach((card, i) => {
+            const on = i === active;
+            card.classList.toggle('is-tab-hidden', !on);
+            btns[i].classList.toggle('is-active', on);
+            if (on) {
+              card.classList.add('is-visible');
+              animate(card);
+            }
+          });
+        } else {
+          tabs.style.display = 'none';
+          cards.forEach(card => card.classList.remove('is-tab-hidden'));
+        }
+      };
+      mq.addEventListener('change', render);
+      render();
+    }
+  }
+})();
